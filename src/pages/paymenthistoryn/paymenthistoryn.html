@@ -1,0 +1,65 @@
+<!--
+  Generated template for the PaymenthistorynPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Payment History</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<!--
+  Generated template for the PaymenthistoryPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+
+
+<ion-content padding>
+   
+
+  <div *ngIf="responsData?.length > 0; then thenTemplateName else elseTemplateName">
+      Here is never showing
+  </div>
+  
+  <ng-template #thenTemplateName>
+      <div *ngFor="let item of responsData">
+          <button ion-item (click)="openItem(item)">
+            <ion-card-content style="color: rgb(190, 24, 196);">
+          <ion-icon name="calendar" item-start></ion-icon>
+          <p style="color: rgb(38, 196, 24);"><b>Duration: {{item.line}}</b></p>
+        
+          <ion-icon style="color: rgb(27, 24, 196);" name="date" item-start></ion-icon>
+          <p style="color: rgb(27, 24, 196);"><b>Due Date: {{item.expires_on}}</b></p>
+    
+          <p style="color: rgb(196, 78, 24);"><b>Amount: &#x20A6;{{item.amount}}</b></p>
+        </ion-card-content>
+    
+        <button  ion-button round (click)="openItem(item)">View Details
+          </button>
+    
+       </button>
+      </div>
+
+  </ng-template>
+  
+  <ng-template #elseTemplateName>
+      <ion-card-header> <h2 style="color:#555555; float:center;">No Donation History to <br/>display at the moment</h2></ion-card-header>
+    <ion-card-content> <h2 style="color:rgb(255, 30, 0); float:right;">please check your network connection</h2></ion-card-content>
+    </ng-template>
+
+
+
+
+</ion-content>
+<ion-footer>
+  <button (click)="createRem()" ion-button color="danger" full>Schedule Reminder!</button>
+
+</ion-footer>

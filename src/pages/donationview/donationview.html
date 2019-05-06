@@ -1,0 +1,125 @@
+
+<ion-header>
+    <ion-navbar>
+       
+           <ion-title>Donation Info</ion-title>
+          
+    </ion-navbar>
+  </ion-header>
+<ion-content padding>
+   
+  
+
+  <ion-card>
+      <ion-card-header style="color: green;">
+        Donation Info
+      </ion-card-header>
+
+     
+    <ion-card-content>
+
+        <ion-row>
+   
+            <ion-col center text-center>
+            <ion-icon name="home" item-start></ion-icon>
+            <h2 style="color: green;">Status: {{item.donation.status}}</h2>
+          </ion-col>
+          </ion-row>
+          <div class="pyro">
+              <div class="before"></div>
+              <div class="after"></div>
+            </div>
+         
+          <ion-row>
+   
+              <ion-col center text-center>
+              <ion-icon name="map" item-start></ion-icon>
+              <h2 style="color: rgb(25, 42, 190);">Gateway Response: {{item.donation.gateway_response}}</h2>
+            </ion-col>
+            </ion-row>
+  
+         
+            <ion-row>
+   
+                <ion-col center text-center>
+              <ion-icon name="flame" item-start></ion-icon>
+              <h2 style="color: rgb(131, 7, 7);">Channel: {{item.donation.channel}}</h2>
+            </ion-col>
+            </ion-row>
+  
+            
+          <ion-row>
+   
+              <ion-col center text-center>
+                <ion-icon name="flame" item-start></ion-icon>
+                <h2 style="color: rgb(128, 115, 0);">Transaction Reference: {{item.donation.reference}}</h2>
+              </ion-col>
+              </ion-row>
+    
+  
+            
+          <ion-row>
+   
+              <ion-col center text-center>
+                <ion-icon name="alarm" item-start></ion-icon>
+                <h2 style="color: rgb(190, 24, 196);">Currency: {{item.donation.currency}}</h2>
+              </ion-col>
+              </ion-row>  
+     
+              <ion-row>
+   
+                  <ion-col center text-center>
+        <ion-icon name="alarm" item-start></ion-icon>
+        <h2 style="color: rgb(199, 92, 21);">Duration: {{item.donation.line}}</h2>
+      </ion-col>
+      </ion-row>
+  
+      
+      <ion-row>
+   
+          <ion-col center text-center>
+        <ion-icon name="date" item-start></ion-icon>
+        <h2 style="color: rgb(25, 42, 190);">Due Date: {{item.donation.expires_on}}</h2>
+      </ion-col>
+      </ion-row>
+
+      
+
+
+      <ion-row>
+   
+          <ion-col center text-center>
+      <p style="color: rgb(190, 24, 196);">Amount: &#x20A6;{{item.donation.amount}}</p>
+    </ion-col>
+  </ion-row>
+
+  
+  <ion-row>
+   
+    <ion-col center text-center>
+    <ion-icon name="home" item-start></ion-icon>
+    <h2 style="color: rgb(190, 24, 196);">Donator: {{item.donator.name}}</h2>
+  </ion-col>
+  </ion-row>
+     
+      
+        <ion-row>
+   
+            <ion-col center text-center>
+        <ion-note style="color: rgb(25, 42, 190);">
+         Time Donated: {{item.donation.created_at}}
+        </ion-note>
+      </ion-col>
+    </ion-row>
+    </ion-card-content>
+    <div class="pyro">
+        <div class="before"></div>
+        <div class="after"></div>
+      </div>
+  </ion-card>
+
+</ion-content>
+<ion-footer>
+  <button (click)="createRem()" ion-button color="danger" full>Schedule Reminder!</button>
+
+</ion-footer>

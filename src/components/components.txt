@@ -1,0 +1,15 @@
+import { NgModule } from '@angular/core';
+import { LayoutEditorComponent } from './layout-editor/layout-editor';
+import { LayoutPreviewComponent } from './layout-preview/layout-preview';
+import { IonicModule } from 'ionic-angular';
+import { TileEditorComponent } from './tile-editor/tile-editor';
+@NgModule({
+	declarations: [LayoutEditorComponent,
+    LayoutPreviewComponent,
+    TileEditorComponent],
+	imports: [IonicModule],
+	exports: [LayoutEditorComponent,
+    LayoutPreviewComponent,
+    TileEditorComponent]
+})
+export class ComponentsModule {}

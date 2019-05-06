@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>
+      Reminders
+    </ion-title>
+  
+  </ion-navbar>
+</ion-header>
+ 
+
+
+<ion-content padding>
+   
+        <h3>
+          Set Reminder
+        </h3>
+            
+  <form (ngSubmit)="submit()">
+
+    <ion-list>
+      <ion-item>
+        <ion-label floating>Date</ion-label>
+        <ion-datetime displayFormat="DD/MM/YY" pickerFormat="D MMMM YYYY" [(ngModel)]="data.date" name="date" required></ion-datetime>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Time</ion-label>
+        <ion-datetime displayFormat="HH:mm" pickerFormat="HH mm" [(ngModel)]="data.time" name="time" required></ion-datetime>
+      </ion-item>
+    </ion-list>
+    <div padding>
+      <button ion-button full round>Schedule Reminder</button>
+    </div>
+  </form>
+</ion-content>
+ 
+<ion-footer>
+    <button (click)="cancelAll()" ion-button color="danger" full>Clear all reminders!</button>
+ 
+</ion-footer>

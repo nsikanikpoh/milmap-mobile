@@ -3,17 +3,26 @@ import { ErrorHandler, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { Camera } from '@ionic-native/camera';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { StatusBar } from '@ionic-native/status-bar';
 import { IonicStorageModule, Storage } from '@ionic/storage';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
-
-import { Items } from '../mocks/providers/items';
-import { Settings } from '../providers/providers';
-import { User } from '../providers/providers';
-import { Api } from '../providers/providers';
+import { IonicApp, IonicErrorHandler,  Nav, IonicModule } from 'ionic-angular';
+import { NgSwitch } from '@angular/common';
+import { Settings, User, Api, Post, Layout, Gallery } from '../providers';
 import { MyApp } from './app.component';
+import { SuperTabsModule } from 'ionic2-super-tabs';
+import { LocalNotifications } from '@ionic-native/local-notifications';
+import { CallNumber } from '@ionic-native/call-number';
+import { ChartsModule } from 'ng2-charts';
+import { UserAgent } from '@ionic-native/user-agent/ngx';
+import { Base64ToGallery } from '@ionic-native/base64-to-gallery';
+import { PhotoViewer } from '@ionic-native/photo-viewer';
+//import {ComponentsModule} from '../components/components.module';
+import { NgxGalleryModule } from 'ngx-gallery';
+import { SocialSharing } from '@ionic-native/social-sharing';
+import { Diagnostic } from '@ionic-native/diagnostic';
 
 // The translate loader needs to know where to load i18n files
 // in Ionic's static asset pipeline.
@@ -39,9 +48,11 @@ export function provideSettings(storage: Storage) {
 @NgModule({
   declarations: [
     MyApp
+    
   ],
   imports: [
     BrowserModule,
+     NgxGalleryModule,
     HttpClientModule,
     TranslateModule.forRoot({
       loader: {
@@ -50,8 +61,11 @@ export function provideSettings(storage: Storage) {
         deps: [HttpClient]
       }
     }),
+    
+   IonicStorageModule.forRoot(),
+    SuperTabsModule.forRoot(),
     IonicModule.forRoot(MyApp),
-    IonicStorageModule.forRoot()
+    
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -59,14 +73,27 @@ export function provideSettings(storage: Storage) {
   ],
   providers: [
     Api,
-    Items,
     User,
+    InAppBrowser,
     Camera,
     SplashScreen,
+    LocalNotifications,
     StatusBar,
+    NgSwitch,
+    Diagnostic,
+    CallNumber,
+    Base64ToGallery,
+    PhotoViewer,
+    SocialSharing,
+    UserAgent,
+    Nav,
+    ChartsModule,
     { provide: Settings, useFactory: provideSettings, deps: [Storage] },
     // Keep this to enable Ionic's runtime error handling during development
-    { provide: ErrorHandler, useClass: IonicErrorHandler }
+    { provide: ErrorHandler, useClass: IonicErrorHandler },
+    Post,
+    Gallery,
+    Layout
   ]
 })
 export class AppModule { }

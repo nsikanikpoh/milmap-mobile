@@ -1,0 +1,73 @@
+<!--
+  Generated template for the SponsorshipcreatePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+    <ion-navbar>
+       
+            <ion-title>New Sponsorship</ion-title>
+           
+          
+    </ion-navbar>
+  </ion-header>
+<ion-content padding>
+   
+        <ion-card>
+      <ion-card-header>
+        Sponsor a Specific Area 
+      </ion-card-header>
+      
+      <ion-card-content>
+      <ion-list no-lines>
+    <div class="spacer" style="height: 10px;"></div>
+    
+    <ion-item>
+      <ion-label>Select Area</ion-label>
+      <ion-select [(ngModel)]="account.interest_line_id" >
+        <div *ngFor="let item of prospectData" >
+        <ion-option value={{item.id}}>{{item.name}}</ion-option>
+        </div>
+      </ion-select>
+    </ion-item>
+  
+    <ion-item>
+        <ion-label>Select Amount</ion-label>
+        <ion-select [(ngModel)]="account.amount" >
+          <ion-option value=2000>N2000</ion-option>
+          <ion-option value=5000>N5000</ion-option>
+          <ion-option value=10000>N10,000</ion-option>
+          <ion-option value=20000>N20,000</ion-option>
+          <ion-option value=50000>N50,000</ion-option>
+          <ion-option value=100000>N100,000</ion-option>
+          <ion-option value=150000>N150,000</ion-option>
+          <ion-option value=200000>N200,000</ion-option>
+          <ion-option value=500000>N500,000</ion-option>
+          <ion-option value=1000000>N1,000,000</ion-option>
+          <ion-option value=2000000>N2,000,000</ion-option>
+          <ion-option value=3000000>N3,000,000</ion-option>
+          <ion-option value=4000000>N4,000,000</ion-option>
+          <ion-option value=5000000>N5,000,000</ion-option>
+          <ion-option value=10000000>N10,000,000</ion-option>
+        </ion-select>
+      </ion-item>
+
+
+                                            
+    <div class="spacer" style="height: 5px;"></div>                                
+    <button ion-button block round color="primary" (click)="presentConfirm()">Create Sponsorship</button>
+      </ion-list>
+        <div class="spacer" style="height: 10px;"></div>
+    <div class="spacer" style="height: 10px;"></div>
+  
+  
+    </ion-card-content>
+    </ion-card>
+  
+
+
+
+
+
+</ion-content>

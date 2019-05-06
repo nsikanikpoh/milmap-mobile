@@ -1,0 +1,25 @@
+page-eventselect {
+    .image-container {
+        min-height: 200px;
+        background-size: cover;
+    }
+     .images {
+            column-count: 1;
+        }
+ 
+    .one-image {
+        margin: 2px;
+    }
+
+    p{
+        width: 75px;
+        height: 75px;
+    }
+    .logo{
+        width: 50%;
+        height: 50%;
+    }
+    
+
+
+}

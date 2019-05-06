@@ -1,0 +1,45 @@
+
+
+
+<ion-content padding>
+   <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  
+  <ion-list>
+    
+    <ion-item-sliding *ngFor="let item of data">
+      <button ion-item (click)="openItem(item)">
+
+          <ion-row>
+              
+              <div class="wrapping-list">
+                  <div class="item">
+                  <h2>{{item.title}}</h2>
+         
+              
+
+
+            <br>
+         
+          <img class="img" src="https://milmap.actionaid-ngr.org:3443/{{item.file.url}}"/>
+        
+            <button  ion-button full round>View Details
+            </button>
+   
+  
+    
+  </div>
+</div>
+  </ion-row>
+</button>
+</ion-item-sliding>
+  </ion-list>
+
+</ion-content>
+
+
+<ion-footer>
+  <button (click)="createRem()" ion-button color="danger" full>Schedule Reminder!</button>
+
+</ion-footer>

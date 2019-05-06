@@ -1,5 +1,42 @@
-<ion-tabs>
-  <ion-tab [root]="tab1Root" [tabTitle]="tab1Title" tabIcon="home"></ion-tab>
-  <ion-tab [root]="tab2Root" [tabTitle]="tab2Title" tabIcon="search"></ion-tab>
-  <ion-tab [root]="tab3Root" [tabTitle]="tab3Title" tabIcon="cog"></ion-tab>
-</ion-tabs>
+
+
+
+<ion-header no-border>
+ 
+  <ion-navbar color="primary" hideBackButton>
+    <ion-title>{{ pages[selectedTab].title }}</ion-title>
+    <ion-buttons left>
+      <button ion-button icon-only menuToggle>
+        <ion-icon name='menu'></ion-icon>
+      </button>
+    </ion-buttons>
+
+    <ion-buttons right (click)="share()">
+    <button ion-button icon-only >
+      <ion-icon class="share-icon" name="share"> </ion-icon>
+    </button>
+  </ion-buttons>
+
+  <ion-buttons right (click)="createRem()">
+    <button ion-button icon-only  >
+      <ion-icon class="share-icon" name="alarm"> </ion-icon>
+    </button>
+  </ion-buttons>
+
+    <ion-buttons right (click)="logoutClicked()">
+      <button ion-button icon-only>
+        <ion-icon name='power'> </ion-icon>
+      </button>
+    </ion-buttons>
+    
+  </ion-navbar>
+ 
+</ion-header>
+
+<ion-content  no-border>
+    <super-tabs [config]="{ sideMenu: 'right' }" tabsPlacement="top" scrollTabs = "true"  toolbarBackground="primary" toolbarColor="light" indicatorColor="light"
+  (tabSelect)="onTabSelect($event)">
+  <super-tab *ngFor="let page of pages" [root]="page.pageName" [icon]="page.icon" [id]="page.id"></super-tab>
+</super-tabs>
+ 
+</ion-content>

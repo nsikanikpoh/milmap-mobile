@@ -1,0 +1,73 @@
+
+<ion-header>
+  <ion-navbar>
+    
+          <ion-title>Event Album </ion-title>
+         
+  
+        
+       
+  </ion-navbar>
+</ion-header>
+ 
+<ion-content padding>
+
+
+  <ion-segment [(ngModel)]="galleryType" color="primary">
+    <ion-segment-button value="regular">
+      Regular
+    </ion-segment-button>
+    <ion-segment-button value="pinterest">
+      Pinterest
+    </ion-segment-button>
+  </ion-segment>
+
+  <ion-segment>
+  <ion-segment-button (click)="createCollage(item)">
+  
+      Create Photo Collage
+   
+  </ion-segment-button>
+  </ion-segment>
+
+ 
+  <div [ngSwitch]="galleryType">
+    <!-- Responsive Layout with Ion Grid-->
+    <ion-grid *ngSwitchCase="'regular'">
+      <ion-card>
+     
+            <ion-row wrap>
+            <ion-col width-33 *ngFor="let file_uri of items">
+             
+                <img src="https://milmap.actionaid-ngr.org:3443/{{file_uri.picture.url}}"/>
+              
+                </ion-col>
+            </ion-row>
+         
+ </ion-card>
+      
+    </ion-grid>
+  
+
+
+
+<!-- More Pinterest floating gallery style -->
+<div class="images" *ngSwitchCase="'pinterest'">
+  <div class="one-image" *ngFor="let image of items">
+      <button ion-item (click)="preview(image)">
+    <img src="https://milmap.actionaid-ngr.org:3443/{{image.picture.url}}">
+    </button>
+  </div>
+</div>
+</div>
+
+
+<p style="color:orange; text-align:center;"><b>Click on Pinterest Tab<br/> to preview each Images</b></p>
+
+</ion-content>
+
+
+<ion-footer>
+  <button (click)="createRem()" ion-button color="danger" full>Schedule Reminder!</button>
+
+</ion-footer>

@@ -16,7 +16,7 @@ export interface Slide {
 })
 export class TutorialPage {
   slides: Slide[];
-  showSkip = true;
+  showSkip = false;
   dir: string = 'ltr';
 
   constructor(public navCtrl: NavController, public menu: MenuController, translate: TranslateService, public platform: Platform) {
@@ -32,19 +32,29 @@ export class TutorialPage {
         console.log('Loaded values', values);
         this.slides = [
           {
-            title: values.TUTORIAL_SLIDE1_TITLE,
-            description: values.TUTORIAL_SLIDE1_DESCRIPTION,
-            image: 'assets/img/ica-slidebox-img-1.png',
+            title: "",
+            description: "",
+            image: 'assets/imgs/Slide1.jpg',
           },
           {
-            title: values.TUTORIAL_SLIDE2_TITLE,
+            title: "Actionaid NG Established the OneMilMapProject ",
+            description: "",
+            image: 'assets/imgs/Slide2.jpg',
+          },
+          {
+            title: "Actionaid NG Established the OneMilMapProject ",
             description: values.TUTORIAL_SLIDE2_DESCRIPTION,
-            image: 'assets/img/ica-slidebox-img-2.png',
+            image: 'assets/imgs/Slide3.jpg',
           },
           {
-            title: values.TUTORIAL_SLIDE3_TITLE,
+            title: "Actionaid NG Established the OneMilMapProject ",
+            description: values.TUTORIAL_SLIDE2_DESCRIPTION,
+            image: 'assets/imgs/Slide4.jpg',
+          },
+          {
+            title: "Community Sponsorship",
             description: values.TUTORIAL_SLIDE3_DESCRIPTION,
-            image: 'assets/img/ica-slidebox-img-3.png',
+            image: 'assets/imgs/Slide5.jpg',
           }
         ];
       });

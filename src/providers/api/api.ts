@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
  */
 @Injectable()
 export class Api {
-  url: string = 'https://example.com/api/v1';
+  url: string = 'https://milmap.actionaid-ngr.org:3443/api/v1';
 
   constructor(public http: HttpClient) {
   }
@@ -22,7 +22,7 @@ export class Api {
     if (params) {
       reqOpts.params = new HttpParams();
       for (let k in params) {
-        reqOpts.params.set(k, params[k]);
+        reqOpts.params = reqOpts.params.set(k, params[k]);
       }
     }
 
@@ -42,6 +42,6 @@ export class Api {
   }
 
   patch(endpoint: string, body: any, reqOpts?: any) {
-    return this.http.put(this.url + '/' + endpoint, body, reqOpts);
+    return this.http.patch(this.url + '/' + endpoint, body, reqOpts);
   }
 }

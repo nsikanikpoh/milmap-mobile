@@ -1,0 +1,96 @@
+page-paystack {
+    .ios, .md{
+
+        page-paystack{
+        
+        .image{
+            width: 50px;
+            height: 50px;
+        
+             text-align: center;
+        
+        }
+        
+        .emailadd {
+        
+        margin-top:30px;
+        
+        text-align:center;
+        
+        }
+        
+        .amount {
+        
+        font-size:25px;
+        
+        color:green;
+        
+        text-align:center;
+        
+        font-weight:bold;
+        
+        }
+        
+        .pay-button{
+        
+        padding: 0 10px;
+        
+        text-align:center;
+        
+        font-size:6px;
+        
+        button {
+        
+        background:green;
+        
+        }
+        
+        }
+        
+        .whatspaystack {
+        
+        font-size:8px;
+        
+        text-align:center;
+        
+        }
+        
+        ion-icon {
+        
+        font-size: 15px; //Preferred size here
+        
+        padding-right:3px;
+        
+        }
+        
+        .secured{
+        
+        text-align:center;
+        
+        font-size: 12px!important;
+        
+        padding:10px;
+        
+        }
+        
+        ion-item {
+        
+        border:1px solid #f0f0f0;
+        
+        }
+        
+        .input-area {
+        
+        background-color:#f8f8f8;
+        
+        padding: 5px 10px 1px 10px;
+        
+        }
+        
+        }
+        
+        }
+        
+        
+
+}

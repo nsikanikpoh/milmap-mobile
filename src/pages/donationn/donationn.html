@@ -1,0 +1,182 @@
+<!--
+  Generated template for the DonationnPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>New Donation</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<!--
+  Generated template for the DonationPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+
+<ion-content >
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+      <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
+
+    <div *ngIf="userDetails.type == 'FundRaiser'">
+      <ion-card>
+    <ion-card-header>
+      Donate for a prospect
+    </ion-card-header>
+    
+    <ion-card-content>
+    <ion-list no-lines>
+  <div class="spacer" style="height: 10px;"></div>
+  
+  <ion-item>
+    <ion-label>Select The Donation period</ion-label>
+    <ion-select [(ngModel)]="account.line" >
+      <ion-option value=0>Monthly</ion-option>
+      <ion-option value=1>Quarterly</ion-option>
+      <ion-option value=2>Yearly</ion-option>
+
+    </ion-select>
+  </ion-item>
+                                          
+  <div class="spacer" style="height: 5px;"></div>   
+
+  <ion-item>
+    <ion-label>Select Prospect</ion-label>
+    <ion-select [(ngModel)]="account.donator_id" >
+      <div *ngFor="let item of prospectData" >
+      <ion-option value={{item.id}}>{{item.name}}</ion-option>
+      </div>
+    </ion-select>
+  </ion-item>
+
+  <ion-item>
+      <ion-label>Select Amount</ion-label>
+      <ion-select [(ngModel)]="account.amount" >
+        <ion-option value=2000>N2000</ion-option>
+        <ion-option value=5000>N5000</ion-option>
+        <ion-option value=10000>N10,000</ion-option>
+        <ion-option value=20000>N20,000</ion-option>
+        <ion-option value=24000>N24,000</ion-option>
+        <ion-option value=50000>N50,000</ion-option>
+        <ion-option value=100000>N100,000</ion-option>
+        <ion-option value=150000>N150,000</ion-option>
+        <ion-option value=200000>N200,000</ion-option>
+        <ion-option value=500000>N500,000</ion-option>
+        <ion-option value=1000000>N1,000,000</ion-option>
+        <ion-option value=2000000>N2,000,000</ion-option>
+        <ion-option value=3000000>N3,000,000</ion-option>
+        <ion-option value=4000000>N4,000,000</ion-option>
+        <ion-option value=5000000>N5,000,000</ion-option>
+        <ion-option value=10000000>N10,000,000</ion-option>
+      </ion-select>
+    </ion-item>
+    <div class="spacer" style="height: 5px;"></div>
+    <ion-item>
+    <h2 style="text-align: center; color: #ff0000; font-weight: bold;">OR </h2>
+    </ion-item>
+   
+    <div class="spacer" style="height: 5px;"></div>
+    <ion-item>
+      <ion-label>Enter other amount!</ion-label>
+      <ion-input  [(ngModel)]="account.camount" placeholder="Enter amount" type="number" ></ion-input>
+    </ion-item>
+                            
+  <button ion-button block round color="primary" (click)="presentConfirm()">Donate for Prospect</button>
+    </ion-list>
+      <div class="spacer" style="height: 10px;"></div>
+  <div class="spacer" style="height: 10px;"></div>
+
+
+  </ion-card-content>
+  </ion-card>
+  </div>
+
+
+
+
+
+
+    
+    <div *ngIf="userDetails.type == 'Member' || userDetails.type == 'Champion' || userDetails.type == 'Patriot' || userDetails.type == 'Ambassador'">
+    <ion-card>
+  <ion-card-header>
+    Pick Amount to Donate
+  </ion-card-header>
+  
+  <ion-card-content>
+  <ion-list no-lines>
+<div class="spacer" style="height: 10px;"></div>
+
+<ion-item>
+  <ion-label>Select The Donation period</ion-label>
+  <ion-select [(ngModel)]="account.line" >
+    <ion-option value=0>Monthly</ion-option>
+    <ion-option value=1>Quarterly</ion-option>
+    <ion-option value=2>Yearly</ion-option>
+
+  </ion-select>
+</ion-item>
+                                        
+<div class="spacer" style="height: 5px;"></div> 
+
+
+
+<ion-item>
+  <ion-label>Select Amount</ion-label>
+  <ion-select [(ngModel)]="account.amount" >
+    <ion-option value=2000>N2000</ion-option>
+    <ion-option value=5000>N5000</ion-option>
+    <ion-option value=10000>N10,000</ion-option>
+    <ion-option value=20000>N20,000</ion-option>
+    <ion-option value=24000>N24,000</ion-option>
+    <ion-option value=30000>N30,000</ion-option>
+    <ion-option value=50000>N50,000</ion-option>
+    <ion-option value=100000>N100,000</ion-option>
+    <ion-option value=150000>N150,000</ion-option>
+    <ion-option value=200000>N200,000</ion-option>
+    <ion-option value=300000>N300,000</ion-option>
+    <ion-option value=500000>N500,000</ion-option>
+    <ion-option value=1000000>N1,000,000</ion-option>
+    <ion-option value=2000000>N2,000,000</ion-option>
+    <ion-option value=3000000>N3,000,000</ion-option>
+    <ion-option value=4000000>N4,000,000</ion-option>
+    <ion-option value=5000000>N5,000,000</ion-option>
+    <ion-option value=10000000>N10,000,000</ion-option>
+  </ion-select>
+</ion-item>
+
+<div class="spacer" style="height: 5px;"></div>
+<ion-item>
+  <h2 style="text-align: center; color: #ff0000; font-weight: bold;">OR </h2>
+  </ion-item>
+  
+  <div class="spacer" style="height: 5px;"></div>
+  <ion-item>
+    <ion-label>Enter other amount!</ion-label>
+    <ion-input  [(ngModel)]="account.camount" placeholder="Enter amount" type="number" ></ion-input>
+  </ion-item>
+                             
+<button ion-button block round color="primary" (click)="presentConfirm()" >Donate</button>
+  </ion-list>
+    <div class="spacer" style="height: 10px;"></div>
+<div class="spacer" style="height: 10px;"></div>
+
+
+</ion-card-content>
+</ion-card>
+</div>
+
+
+</ion-content>
+
+<ion-footer>
+  <button (click)="createRem()" ion-button color="danger" full>Schedule Reminder!</button>
+
+</ion-footer>

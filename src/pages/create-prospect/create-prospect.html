@@ -1,0 +1,178 @@
+<!--
+  Generated template for the CreateProspectPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+     New Prospect
+    </ion-title>
+  
+  </ion-navbar>
+</ion-header>
+
+
+
+<ion-content class="background">
+
+  <ion-card>
+    <ion-card-header>
+      New Prospect Entry
+    </ion-card-header>
+    
+    <ion-card-content>    
+        <form novalidate (ngSubmit)="doSignup()" [formGroup]="signinform">  
+            <ion-list no-lines>
+                <div class="spacer" style="height: 10px;"></div>
+                <ion-item>
+                    <ion-input placeholder="Enter your name"  [(ngModel)]="account.name" type="text" formControlName="name" [class.error1]="!signinform.controls.name.valid && signinform.controls.name.dirty"></ion-input>
+                  </ion-item>
+        
+            <ion-item no-lines *ngIf="( signinform.get('name').hasError('minlength') || signinform.get('name').hasError('maxlength') ||signinform.get('name').hasError('pattern') ||signinform.get('name').hasError('required') ) && signinform.get('name').touched">
+                <div class="error" *ngIf="signinform.get('name').hasError('required') && signinform.get('name').touched">
+                  Please input prospect's Name
+                </div>
+                <div class="error" *ngIf="signinform.get('name').hasError('minlength') && signinform.get('name').touched">
+                  Minimum 4 characters
+                </div>
+                <div class="error" *ngIf="signinform.get('name').hasError('maxlength') && signinform.get('name').touched">
+                  Maximum 30 characters
+                </div>
+                <div class="error" *ngIf="signinform.get('name').hasError('pattern') && signinform.get('name').touched">
+                  Just use alphabet character
+                </div>
+              </ion-item>
+        
+        
+            <div class="spacer" style="height: 5px;"></div>
+            <ion-item>
+                  
+                <ion-input type="email" placeholder="Email" [(ngModel)]="account.email" formControlName="email" [class.error1]="!signinform.controls.email.valid && signinform.controls.email.dirty"></ion-input>
+              </ion-item>
+        
+            <ion-item no-lines *ngIf="( signinform.get('email').hasError('minlength') || signinform.get('email').hasError('pattern') ||signinform.get('email').hasError('required') ) && signinform.get('email').touched">
+                <div class="error" *ngIf="signinform.get('email').hasError('required') && signinform.get('email').touched">
+                  Please input prospect's email
+                </div>
+                <div class="error" *ngIf="signinform.get('email').hasError('pattern') && signinform.get('email').touched">
+                  Email address invalid
+                </div>
+              </ion-item>
+              
+            <div class="spacer" style="height: 5px;"></div>
+            <ion-item>
+              
+              <ion-input type="text" placeholder="Location" [(ngModel)]="account.location" name="location" formControlName="location" [class.error]="!signinform.controls.location.valid && signinform.controls.location.dirty"></ion-input>
+            </ion-item>
+            
+            <ion-item no-lines *ngIf="signinform.get('location').hasError('required')  && signinform.get('location').touched">
+                <div class="error" *ngIf="signinform.get('location').hasError('required') && signinform.get('location').touched">
+                  Please Enter prospect's City
+                </div>
+          </ion-item>
+            
+            
+            <div class="spacer" style="height: 5px;"></div>
+            <ion-item>
+              <ion-input type="number" placeholder="Phone" [(ngModel)]="account.phone" formControlName="phone" [class.error1]="!signinform.controls.phone.valid && signinform.controls.phone.dirty"></ion-input>
+            </ion-item>
+        
+            <ion-item no-lines *ngIf="( signinform.get('phone').hasError('minlength') || signinform.get('phone').hasError('maxlength') ||signinform.get('phone').hasError('required') ) && signinform.get('phone').touched">
+              <div class="error" *ngIf="signinform.get('phone').hasError('required') && signinform.get('phone').touched">
+                Please input prospect's phone number
+              </div>
+              <div class="error" *ngIf="signinform.get('phone').hasError('minlength') && signinform.get('phone').touched">
+                Plese input 11 digits
+              </div>
+              <div class="error" *ngIf="signinform.get('phone').hasError('maxlength') && signinform.get('phone').touched">
+                Maximum 13 Numbers
+              </div>
+            </ion-item>
+        
+            <div class="spacer" style="height: 5px;"></div>
+            <ion-item>
+              <ion-label>Gender</ion-label>
+              <ion-select [(ngModel)]="account.gender" formControlName="gender" [class.error]="!signinform.controls.gender.valid && signinform.controls.gender.dirty">
+                <ion-option value="Female">Female</ion-option>
+                <ion-option value="Male">Male</ion-option>
+              </ion-select>
+            </ion-item>
+        
+            <ion-item no-lines *ngIf="signinform.get('gender').hasError('required')  && signinform.get('gender').touched">
+                <div class="error" *ngIf="signinform.get('gender').hasError('required') && signinform.get('gender').touched">
+                  Please select prospect's gender
+                </div>
+              </ion-item>
+        
+            <div class="spacer" style="height: 5px;"></div>
+            <ion-item>
+              <ion-input type="text" placeholder="Address" [(ngModel)]="account.address" formControlName="address" [class.error]="!signinform.controls.address.valid && signinform.controls.address.dirty"></ion-input>
+            </ion-item>
+            <ion-item no-lines *ngIf="signinform.get('address').hasError('required')  && signinform.get('address').touched">
+                <div class="error" *ngIf="signinform.get('address').hasError('required') && signinform.get('address').touched">
+                  Please Enter prospect's Address
+                </div>
+              </ion-item>
+        
+            <div class="spacer" style="height: 5px;"></div>
+            <ion-item>
+              <ion-label>State</ion-label>
+              <ion-select [(ngModel)]="account.state" formControlName="state" [class.error]="!signinform.controls.state.valid && signinform.controls.state.dirty">
+                <ion-option value="Abia">Abia</ion-option>
+                <ion-option value="Adamawa">Adamawa</ion-option>
+                <ion-option value="Akwa Ibom">Akwa Ibom</ion-option>
+                <ion-option value="Anambra">Anambra</ion-option>
+                <ion-option value="Bauchi">Bauchi</ion-option>
+                <ion-option value="Bayelsa">Bayelsa</ion-option>
+                <ion-option value="Benue">Benue</ion-option>
+                <ion-option value="Borno">Borno</ion-option>
+                <ion-option value="Cross River">Cross River</ion-option>
+                <ion-option value="Delta">Delta</ion-option>
+                <ion-option value="Ebonyi">Ebonyi</ion-option>
+                <ion-option value="Edo">Edo</ion-option>
+                <ion-option value="Ekiti">Ekiti</ion-option>
+                <ion-option value="Enugu">Enugu</ion-option>
+                <ion-option value="FCT">FCT</ion-option>
+                <ion-option value="Gombe">Gombe</ion-option>
+                <ion-option value="Imo">Imo</ion-option>
+                <ion-option value="Jigawa">Jigawa</ion-option>
+                <ion-option value="Kaduna">Kaduna</ion-option>
+                <ion-option value="Kano">Kano</ion-option>
+                <ion-option value="Katsina">Katsina</ion-option>
+                <ion-option value="Kebbi">Kebbi</ion-option>
+                <ion-option value="Kogi">Kogi</ion-option>
+                <ion-option value="Kwara">Kwara</ion-option>
+                <ion-option value="Lagos">Lagos</ion-option>
+                <ion-option value="Nassarawa">Nassarawa</ion-option>
+                <ion-option value="Niger">Niger</ion-option>
+                <ion-option value="Ogun">Ogun</ion-option>
+                <ion-option value="Ondo">Ondo</ion-option>
+                <ion-option value="Osun">Osun</ion-option>
+                <ion-option value="Oyo">Oyo</ion-option>
+                <ion-option value="Plateau">Plateau</ion-option>
+                <ion-option value="Rivers">Rivers</ion-option>
+                <ion-option value="Sokoto">Sokoto</ion-option>
+                <ion-option value="Taraba">Taraba</ion-option>
+                <ion-option value="Yobe">Yobe</ion-option>
+                <ion-option value="Zamfara">Zamfara</ion-option>
+              </ion-select>
+           
+            </ion-item>
+        
+            <ion-item no-lines *ngIf="signinform.get('state').hasError('required')  && signinform.get('state').touched">
+              <div class="error" *ngIf="signinform.get('state').hasError('required') && signinform.get('state').touched">
+                Please select prospect's State
+              </div>
+            </ion-item>
+        
+            <div class="spacer" style="height: 10px;"></div>
+            <button type="submit" ion-button block round color="primary">Create Prospect</button>
+         
+         </ion-list>
+          </form>
+
+</ion-card-content>
+</ion-card>
+</ion-content>

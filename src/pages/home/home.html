@@ -1,0 +1,708 @@
+<!--
+  Generated template for the HomePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+
+  <ion-content padding class="background">
+     
+    
+      <div *ngIf="userDetails.type == 'FundRaiser'" >
+
+          <ion-row>
+              <ion-col text-left>
+                  <a menuClose (click)="openPage()"> 
+                              <img src="assets/imgs/Notification.png" class="img"/>
+                           <p class="re">Contacts Made</p>
+                  </a>
+          </ion-col>
+            
+          <ion-col text-right>
+                    <a menuClose (click)="prospect()"> 
+                      
+                                <img src="assets/imgs/Register.png" class="img"/>
+                          <p class="re">Add New Prospect</p>
+                    </a>
+                 
+          </ion-col>
+          </ion-row>
+
+
+        <ion-card class="bay">
+            <ion-card-header>
+              Total Prospects
+            </ion-card-header>
+            <ion-card-content>
+              <ion-icon name="paper" item-start></ion-icon> {{pNumber?.length}} 
+            </ion-card-content>
+          </ion-card>
+
+          <ion-card class="bay4">
+              <ion-card-header>
+                Prospects Donated
+              </ion-card-header>
+              <ion-card-content>
+                <ion-icon name="flame" item-start></ion-icon> {{pConverted?.length}} 
+              </ion-card-content>
+            </ion-card>
+
+            <ion-card class="bay3">
+                <ion-card-header>
+                  Total Raised By You
+                </ion-card-header>
+                <ion-card-content>
+                  &#x20A6; {{fundAmount}} 
+                </ion-card-content>
+              </ion-card>
+
+              <ion-card>
+                  <ion-card-header>
+                    Action Funnel 
+                  </ion-card-header>
+                  <ion-card-content>
+
+                      <ion-grid >
+ 
+                        <ion-row>
+                          <ion-col>
+                              <ion-avatar center text-center>
+                            <img src="https://milmap.actionaid-ngr.org:3443/{{userDetails.image.url}}"/>
+                            </ion-avatar>
+                          </ion-col>
+                        </ion-row>
+
+
+                        <ion-row>
+                          <ion-col>
+                              <button ion-button clear (click)="contact()"> 
+                              <ion-card>
+                                  <ion-card-header>
+                                     
+                                  </ion-card-header>
+                
+                                  <ion-card-content>
+                                      <img src="assets/imgs/contact.png"/>
+                                  </ion-card-content>
+                                </ion-card>
+                                </button>
+                            </ion-col>
+                        </ion-row>  
+                        
+                        <ion-row>
+                            <ion-col>
+                                <button ion-button clear (click)="opportunity()"> 
+                                <ion-card>
+                                    <ion-card-header>
+                                       
+                                    </ion-card-header>
+                  
+                                    <ion-card-content>
+                                        <img src="assets/imgs/Opportunity.png"/>
+                                    </ion-card-content>
+                                  </ion-card>
+                                  </button>
+                              </ion-col>
+                          </ion-row>  
+
+                         
+                            
+                            <ion-row>
+                                <ion-col>
+                                    <button ion-button clear (click)="donate()"> 
+                                        
+                                      
+                                    <ion-card>
+                                        <ion-card-header>
+                                           
+                                        </ion-card-header>
+                      
+                                        <ion-card-content>
+                                            <img src="assets/imgs/Donated.png"/>
+                                        </ion-card-content>
+                                      </ion-card>
+                                    </button>
+                                  </ion-col>
+                              </ion-row>  
+                    
+                        </ion-grid>
+                  </ion-card-content>
+                </ion-card>
+ <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="Pull to refresh" refreshingSpinner="bubbles" refreshingText="Refreshing...">
+    </ion-refresher-content>
+  </ion-refresher>
+      </div>
+
+      <div *ngIf="userDetails.type == 'Member' || userDetails.type == 'Champion' || userDetails.type == 'Patriot' || userDetails.type == 'Ambassador'">
+        
+        <ion-icon name="calendar" item-start style="color:#555555; float:right; font-weight: bold;">Last Payment date: {{lastPaymentDate}} </ion-icon>
+     
+        <div *ngIf="userDetails.type == 'Patriot'" >
+<br/>
+ <ion-card class="bay7">
+        
+                      <ion-row wrap >
+                      <ion-col width-33 height-50>
+                  <button class="asi" icon-only style="background-color: #ea4335; font-weight: bold;" (click)="mySponsorships()" color="primary" clear left>
+                    <ion-icon class="share-icon" name="basket"></ion-icon>My Sponsorships
+                  </button>
+                        
+                          </ion-col>
+
+                          <ion-col width-33 height-50>
+                       
+                            <button class="ase" style="float:right; background-color: #555555; font-weight: bold;" icon-only (click)="interests()" color="primary" clear left>
+                              <ion-icon class="share-icon" name="copy"></ion-icon>Interests
+                            </button>
+                                    </ion-col>
+
+                          <ion-col width-33 height-50>
+                       
+                      <button class="as" icon-only style="background-color: #fabc05; font-weight: bold;" (click)="createSponsorship()" color="primary" clear left>
+                        <ion-icon class="share-icon" name="boat"></ion-icon>New Sponsorship
+                      </button>
+                              </ion-col>
+                             
+
+                      </ion-row>
+
+ </ion-card>
+
+ </div>
+<ion-grid>
+     <ion-row>
+       <ion-col style="float:left;" text-left>
+
+          <ion-card class="bay4" style="color:#fff; font-weight: bold;">
+             
+ <ion-card-content style="color:#fff;">Total <br/>&#8358; {{totalDonation}}</ion-card-content>
+              
+
+            </ion-card>
+          </ion-col>
+          <ion-col style="float:right;" text-justify>
+            <ion-card class="bay" style="color:#fff; font-weight: bold;">
+            <ion-card-content style="color:#fff;;">Due Date <br/> {{dueDay}} days </ion-card-content>     
+            </ion-card>
+         </ion-col>
+       </ion-row>
+
+   </ion-grid>
+        <ion-card>
+            <ion-card-header>
+              Donation Chart
+            </ion-card-header>
+            <ion-card-content>
+              <canvas #lineCanvas></canvas>
+            </ion-card-content>
+          </ion-card>
+
+                    <ion-card class="bay5">
+
+                        <ion-card-header (click)="flattoggleSection()">
+                          View Downline Tree
+            
+                          <a clear  item-right>
+                              <ion-icon color="primary" [name]="icon"></ion-icon>
+                        
+                             <ion-avatar>
+                                <img src="https://milmap.actionaid-ngr.org:3443/{{userDetails.image.url}}"/>
+                                </ion-avatar>  </a> 
+                          
+                        
+                        </ion-card-header>
+                       
+
+ 
+                      <ion-card-content class="ent" #content>
+
+                          <ion-grid >
+ 
+                            <ion-row *ngIf="responsData">
+                              <ion-col>
+            
+            
+                            <ion-card>
+                              <ion-card-header (click)="ftoggleSection()">
+                                  <a clear  item-right>
+                                      <ion-icon color="primary" [name]="icon"></ion-icon>
+                                    
+                                <img src="{{fimage}}"/>
+                                <p center text-center>{{responsData?.firstgeners.length}} Referrals</p>
+                                  </a>
+                              </ion-card-header>
+            
+                              <ion-card-content class="ent" #fcontent>
+                                  <ion-list class="accordion-list" *ngFor="let item of responsData.firstgeners">
+                               
+                                      <ion-item class="child-item">
+                                        <ion-row>
+                                          <ion-col text-left>
+                                          <ion-avatar class="imgl" item-start>
+                                              <img  class="imgl" src="https://milmap.actionaid-ngr.org:3443/{{item.image.url}}"/>
+                                             
+                                            </ion-avatar> 
+                                            <h5>{{ item.name }}</h5>  
+                                             <!-- Direct Add Button -->
+                                
+                                          </ion-col>
+                                          <ion-col text-right>
+                                                                
+                                              <span *ngIf="item.s_type == 'Member'" >
+                                      
+                                     <img class="imgr" src="assets/imgs/member1.png"/></span>
+                                     <span *ngIf="item.s_type == 'Patriot'" >
+                                      
+                                        <img class="imgr" src="assets/imgs/Patriot.png"/></span>
+            
+                                        <span *ngIf="item.s_type == 'Champion'" >
+                                      
+                                            <img class="imgr" src="assets/imgs/Champion.png"/></span>
+            
+                                            <span *ngIf="item.s_type == 'Ambassador'" >
+                                      
+                                                <img class="imgr" src="assets/imgs/ambassador.png"/></span>
+                                
+                                     <button ion-button clear icon-only item-right (click)="openItem(item)"> 
+                                        <ion-icon color="secondary" name="eye"></ion-icon>
+                                      </button>
+                               </ion-col>
+            
+                              </ion-row>
+                                </ion-item>
+                                </ion-list>
+            
+                                <ion-infinite-scroll (ionInfinite)="fdoInfinite($event)">
+                                    <ion-infinite-scroll-content></ion-infinite-scroll-content>
+                                  </ion-infinite-scroll>
+            
+                              </ion-card-content>
+                            </ion-card>
+            
+                            <ion-card>
+                              <ion-card-header (click)="setoggleSection()">
+                                  <a clear  item-right>
+                                      <ion-icon color="primary" [name]="icon"></ion-icon>
+                                    
+                                <img src="{{seimage}}"/>
+                                <p center text-center>{{responsData?.secondgeners.length}} Referrals</p>
+                                  </a>
+                              </ion-card-header>
+            
+                              <ion-card-content class="ent" #secontent>
+                                  <ion-list class="accordion-list" *ngFor="let item of responsData.secondgeners">
+                               
+                                      <ion-item class="child-item">
+                                        <ion-row>
+                                          <ion-col text-left>
+                                          <ion-avatar class="imgl" item-start>
+                                              <img  class="imgl" src="https://milmap.actionaid-ngr.org:3443/{{item.image.url}}"/>
+                                             
+                                            </ion-avatar> 
+                                            <h5>{{ item.name }}</h5>  
+                                             <!-- Direct Add Button -->
+                                
+                                          </ion-col>
+                                          <ion-col text-right>
+                                                                
+                                              <span *ngIf="item.s_type == 'Member'" >
+                                      
+                                     <img class="imgr" src="assets/imgs/member1.png"/></span>
+                                     <span *ngIf="item.s_type == 'Patriot'" >
+                                      
+                                        <img class="imgr" src="assets/imgs/Patriot.png"/></span>
+            
+                                        <span *ngIf="item.s_type == 'Champion'" >
+                                      
+                                            <img class="imgr" src="assets/imgs/Champion.png"/></span>
+            
+                                            <span *ngIf="item.s_type == 'Ambassador'" >
+                                      
+                                                <img class="imgr" src="assets/imgs/ambassador.png"/></span>
+                                
+                                     <button ion-button clear icon-only item-right (click)="openItem(item)"> 
+                                        <ion-icon color="secondary" name="eye"></ion-icon>
+                                      </button>
+                               </ion-col>
+            
+                              </ion-row>
+                                </ion-item>
+                                </ion-list>
+            
+                                <ion-infinite-scroll (ionInfinite)="sedoInfinite($event)">
+                                    <ion-infinite-scroll-content></ion-infinite-scroll-content>
+                                  </ion-infinite-scroll>
+            
+                              </ion-card-content>
+                            </ion-card>
+            
+                            <ion-card>
+                              <ion-card-header (click)="ttoggleSection()">
+                                  <a clear  item-right>
+                                      <ion-icon color="primary" [name]="icon"></ion-icon>
+                                    
+                                <img src="{{timage}}"/>
+                                <p center text-center>{{responsData?.thirdgeners.length}} Referrals</p>
+                                  </a>
+                              </ion-card-header>
+            
+                              <ion-card-content class="ent" #tcontent>
+                                  <ion-list class="accordion-list" *ngFor="let item of responsData.thirdgeners">
+                               
+                                      <ion-item class="child-item">
+                                        <ion-row>
+                                          <ion-col text-left>
+                                          <ion-avatar class="imgl" item-start>
+                                              <img  class="imgl" src="https://milmap.actionaid-ngr.org:3443/{{item.image.url}}"/>
+                                             
+                                            </ion-avatar> 
+                                            <h5>{{ item.name }}</h5>  
+                                             <!-- Direct Add Button -->
+                                
+                                          </ion-col>
+                                          <ion-col text-right>
+                                                                
+                                              <span *ngIf="item.s_type == 'Member'" >
+                                      
+                                     <img class="imgr" src="assets/imgs/member1.png"/></span>
+                                     <span *ngIf="item.s_type == 'Patriot'" >
+                                      
+                                        <img class="imgr" src="assets/imgs/Patriot.png"/></span>
+            
+                                        <span *ngIf="item.s_type == 'Champion'" >
+                                      
+                                            <img class="imgr" src="assets/imgs/Champion.png"/></span>
+            
+                                            <span *ngIf="item.s_type == 'Ambassador'" >
+                                      
+                                                <img class="imgr" src="assets/imgs/ambassador.png"/></span>
+                                
+                                     <button ion-button clear icon-only item-right (click)="openItem(item)"> 
+                                        <ion-icon color="secondary" name="eye"></ion-icon>
+                                      </button>
+                               </ion-col>
+            
+                              </ion-row>
+                                </ion-item>
+                                </ion-list>
+            
+                                <ion-infinite-scroll (ionInfinite)="tdoInfinite($event)">
+                                    <ion-infinite-scroll-content></ion-infinite-scroll-content>
+                                  </ion-infinite-scroll>
+            
+                              </ion-card-content>
+                            </ion-card>
+                      
+            
+            
+            
+                            <ion-card>
+                              <ion-card-header (click)="fotoggleSection()">
+                                  <a clear  item-right>
+                                      <ion-icon color="primary" [name]="icon"></ion-icon>
+                                    
+                                <img src="{{foimage}}"/>
+                                <p center text-center>{{responsData?.fourthgeners.length}} Referrals</p>
+                                  </a>
+                              </ion-card-header>
+            
+                              <ion-card-content class="ent" #focontent>
+                                  <ion-list class="accordion-list" *ngFor="let item of responsData.fourthgeners">
+                               
+                                      <ion-item class="child-item">
+                                        <ion-row>
+                                          <ion-col text-left>
+                                          <ion-avatar class="imgl" item-start>
+                                              <img  class="imgl" src="https://milmap.actionaid-ngr.org:3443/{{item.image.url}}"/>
+                                             
+                                            </ion-avatar> 
+                                            <h5>{{ item.name }}</h5>  
+                                             <!-- Direct Add Button -->
+                                
+                                          </ion-col>
+                                          <ion-col text-right>
+                                                                
+                                              <span *ngIf="item.s_type == 'Member'" >
+                                      
+                                     <img class="imgr" src="assets/imgs/member1.png"/></span>
+                                     <span *ngIf="item.s_type == 'Patriot'" >
+                                      
+                                        <img class="imgr" src="assets/imgs/Patriot.png"/></span>
+            
+                                        <span *ngIf="item.s_type == 'Champion'" >
+                                      
+                                            <img class="imgr" src="assets/imgs/Champion.png"/></span>
+            
+                                            <span *ngIf="item.s_type == 'Ambassador'" >
+                                      
+                                                <img class="imgr" src="assets/imgs/ambassador.png"/></span>
+                                
+                                     <button ion-button clear icon-only item-right (click)="openItem(item)"> 
+                                        <ion-icon color="secondary" name="eye"></ion-icon>
+                                      </button>
+                               </ion-col>
+            
+                              </ion-row>
+                                </ion-item>
+                                </ion-list>
+            
+                                <ion-infinite-scroll (ionInfinite)="fodoInfinite($event)">
+                                    <ion-infinite-scroll-content></ion-infinite-scroll-content>
+                                  </ion-infinite-scroll>
+            
+                              </ion-card-content>
+                            </ion-card>
+                      
+            
+                            <ion-card>
+                              <ion-card-header (click)="fitoggleSection()">
+                                  <a clear  item-right>
+                                      <ion-icon color="primary" [name]="icon"></ion-icon>
+                                    
+                                <img src="{{fiimage}}"/>
+                                <p center text-center>{{responsData?.fifthgeners.length}} Referrals</p>
+                                  </a>
+                              </ion-card-header>
+            
+                              <ion-card-content class="ent" #ficontent>
+                                  <ion-list class="accordion-list" *ngFor="let item of responsData.fifthgeners">
+                               
+                                      <ion-item class="child-item">
+                                        <ion-row>
+                                          <ion-col text-left>
+                                          <ion-avatar class="imgl" item-start>
+                                              <img  class="imgl" src="https://milmap.actionaid-ngr.org:3443/{{item.image.url}}"/>
+                                             
+                                            </ion-avatar> 
+                                            <h5>{{ item.name }}</h5>  
+                                             <!-- Direct Add Button -->
+                                
+                                          </ion-col>
+                                          <ion-col text-right>
+                                                                
+                                              <span *ngIf="item.s_type == 'Member'" >
+                                      
+                                     <img class="imgr" src="assets/imgs/member1.png"/></span>
+                                     <span *ngIf="item.s_type == 'Patriot'" >
+                                      
+                                        <img class="imgr" src="assets/imgs/Patriot.png"/></span>
+            
+                                        <span *ngIf="item.s_type == 'Champion'" >
+                                      
+                                            <img class="imgr" src="assets/imgs/Champion.png"/></span>
+            
+                                            <span *ngIf="item.s_type == 'Ambassador'" >
+                                      
+                                                <img class="imgr" src="assets/imgs/ambassador.png"/></span>
+                                
+                                     <button ion-button clear icon-only item-right (click)="openItem(item)"> 
+                                        <ion-icon color="secondary" name="eye"></ion-icon>
+                                      </button>
+                               </ion-col>
+            
+                              </ion-row>
+                                </ion-item>
+                                </ion-list>
+            
+                                <ion-infinite-scroll (ionInfinite)="fidoInfinite($event)">
+                                    <ion-infinite-scroll-content></ion-infinite-scroll-content>
+                                  </ion-infinite-scroll>
+            
+                              </ion-card-content>
+                            </ion-card>
+                      
+            
+                            <ion-card>
+                              <ion-card-header (click)="sitoggleSection()">
+                                  <a clear  item-right>
+                                      <ion-icon color="primary" [name]="icon"></ion-icon>
+                                    
+                                <img src="{{siimage}}"/>
+                                <p center text-center>{{responsData?.sixthgeners.length}} Referrals</p>
+                                  </a>
+                              </ion-card-header>
+            
+                              <ion-card-content class="ent" #sicontent>
+                                  <ion-list class="accordion-list" *ngFor="let item of responsData.sixthgeners">
+                               
+                                      <ion-item class="child-item">
+                                        <ion-row>
+                                          <ion-col text-left>
+                                          <ion-avatar class="imgl" item-start>
+                                              <img  class="imgl" src="https://milmap.actionaid-ngr.org:3443/{{item.image.url}}"/>
+                                             
+                                            </ion-avatar> 
+                                            <h5>{{ item.name }}</h5>  
+                                             <!-- Direct Add Button -->
+                                
+                                          </ion-col>
+                                          <ion-col text-right>
+                                                                
+                                              <span *ngIf="item.s_type == 'Member'" >
+                                      
+                                     <img class="imgr" src="assets/imgs/member1.png"/></span>
+                                     <span *ngIf="item.s_type == 'Patriot'" >
+                                      
+                                        <img class="imgr" src="assets/imgs/Patriot.png"/></span>
+            
+                                        <span *ngIf="item.s_type == 'Champion'" >
+                                      
+                                            <img class="imgr" src="assets/imgs/Champion.png"/></span>
+            
+                                            <span *ngIf="item.s_type == 'Ambassador'" >
+                                      
+                                                <img class="imgr" src="assets/imgs/ambassador.png"/></span>
+                                
+                                     <button ion-button clear icon-only item-right (click)="openItem(item)"> 
+                                        <ion-icon color="secondary" name="eye"></ion-icon>
+                                      </button>
+                               </ion-col>
+            
+                              </ion-row>
+                                </ion-item>
+                                </ion-list>
+            
+                                <ion-infinite-scroll (ionInfinite)="sidoInfinite($event)">
+                                    <ion-infinite-scroll-content></ion-infinite-scroll-content>
+                                  </ion-infinite-scroll>
+            
+                              </ion-card-content>
+                            </ion-card>
+            
+                            <ion-card>
+                              <ion-card-header (click)="stoggleSection()">
+                                  <a clear  item-right>
+                                      <ion-icon color="primary" [name]="icon"></ion-icon>
+                                    
+                                <img src="{{simage}}"/>
+                                <p center text-center>{{responsData?.seventhgeners.length}} Referrals</p>
+                                  </a>
+                              </ion-card-header>
+            
+                              <ion-card-content class="ent" #scontent>
+                                  <ion-list class="accordion-list" *ngFor="let item of responsData.seventhgeners">
+                               
+                                      <ion-item class="child-item">
+                                        <ion-row>
+                                          <ion-col text-left>
+                                          <ion-avatar class="imgl" item-start>
+                                              <img  class="imgl" src="https://milmap.actionaid-ngr.org:3443/{{item.image.url}}"/>
+                                             
+                                            </ion-avatar> 
+                                            <h5>{{ item.name }}</h5>  
+                                             <!-- Direct Add Button -->
+                                
+                                          </ion-col>
+                                          <ion-col text-right>
+                                                                
+                                              <span *ngIf="item.s_type == 'Member'" >
+                                      
+                                     <img class="imgr" src="assets/imgs/member1.png"/></span>
+                                     <span *ngIf="item.s_type == 'Patriot'" >
+                                      
+                                        <img class="imgr" src="assets/imgs/Patriot.png"/></span>
+            
+                                        <span *ngIf="item.s_type == 'Champion'" >
+                                      
+                                            <img class="imgr" src="assets/imgs/Champion.png"/></span>
+            
+                                            <span *ngIf="item.s_type == 'Ambassador'" >
+                                      
+                                                <img class="imgr" src="assets/imgs/ambassador.png"/></span>
+                                
+                                     <button ion-button clear icon-only item-right (click)="openItem(item)"> 
+                                        <ion-icon color="secondary" name="eye"></ion-icon>
+                                      </button>
+                               </ion-col>
+            
+                              </ion-row>
+                                </ion-item>
+                                </ion-list>
+            
+                                <ion-infinite-scroll (ionInfinite)="sdoInfinite($event)">
+                                    <ion-infinite-scroll-content></ion-infinite-scroll-content>
+                                  </ion-infinite-scroll>
+            
+                              </ion-card-content>
+                            </ion-card>
+            
+                            <ion-card>
+                              <ion-card-header (click)="etoggleSection()">
+                                  <a clear  item-right>
+                                      <ion-icon color="primary" [name]="icon"></ion-icon>
+                                    
+                                <img src="{{eimage}}"/>
+                                <p center text-center>{{responsData?.eightgeners.length}} Referrals</p>
+                                  </a>
+                              </ion-card-header>
+            
+                              <ion-card-content class="ent" #econtent>
+                                  <ion-list class="accordion-list" *ngFor="let item of responsData.eightgeners">
+                               
+                                      <ion-item class="child-item">
+                                        <ion-row>
+                                          <ion-col text-left>
+                                          <ion-avatar class="imgl" item-start>
+                                              <img  class="imgl" src="https://milmap.actionaid-ngr.org:3443/{{item.image.url}}"/>
+                                             
+                                            </ion-avatar> 
+                                            <h5>{{ item.name }}</h5>  
+                                             <!-- Direct Add Button -->
+                                
+                                          </ion-col>
+                                          <ion-col text-right>
+                                                                
+                                              <span *ngIf="item.s_type == 'Member'" >
+                                      
+                                     <img class="imgr" src="assets/imgs/member1.png"/></span>
+                                     <span *ngIf="item.s_type == 'Patriot'" >
+                                      
+                                        <img class="imgr" src="assets/imgs/Patriot.png"/></span>
+            
+                                        <span *ngIf="item.s_type == 'Champion'" >
+                                      
+                                            <img class="imgr" src="assets/imgs/Champion.png"/></span>
+            
+                                            <span *ngIf="item.s_type == 'Ambassador'" >
+                                      
+                                                <img class="imgr" src="assets/imgs/ambassador.png"/></span>
+                                
+                                     <button ion-button clear icon-only item-right (click)="openItem(item)"> 
+                                        <ion-icon color="secondary" name="eye"></ion-icon>
+                                      </button>
+                               </ion-col>
+            
+                              </ion-row>
+                                </ion-item>
+                                </ion-list>
+            
+                                <ion-infinite-scroll (ionInfinite)="edoInfinite($event)">
+                                    <ion-infinite-scroll-content></ion-infinite-scroll-content>
+                                  </ion-infinite-scroll>
+            
+                              </ion-card-content>
+                            </ion-card>
+                              
+                                </ion-col>
+                              </ion-row>
+            
+            
+                            </ion-grid>
+                        
+                        </ion-card-content>
+            
+
+          </ion-card>
+    
+  
+   <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="Pull to refresh" refreshingSpinner="bubbles" refreshingText="Refreshing...">
+    </ion-refresher-content>
+  </ion-refresher>
+</div>
+
+
+  </ion-content>
+ 

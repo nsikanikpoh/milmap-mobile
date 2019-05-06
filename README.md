@@ -1,1 +1,1 @@
-### :point_right: This starter repo has moved to the [ionic-team/starters](https://github.com/ionic-team/starters/tree/master/ionic-angular/official/super) repo! :point_left:
+### :point_right: ionic and angular js mobile client for the milmap project. :point_left:

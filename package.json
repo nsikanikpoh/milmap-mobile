@@ -20,22 +20,107 @@
     "@angular/http": "5.0.0",
     "@angular/platform-browser": "5.0.0",
     "@angular/platform-browser-dynamic": "5.0.0",
-    "@ionic-native/core": "4.3.2",
+    "@ionic-native/base64-to-gallery": "^4.18.0",
+    "@ionic-native/call-number": "^4.19.0",
+    "@ionic-native/camera": "^4.19.0",
+    "@ionic-native/core": "^4.11.0",
+    "@ionic-native/diagnostic": "^4.18.0",
+    "@ionic-native/in-app-browser": "^4.20.0",
+    "@ionic-native/local-notifications": "^4.20.0",
+    "@ionic-native/photo-viewer": "^4.18.0",
+    "@ionic-native/social-sharing": "^4.18.0",
     "@ionic-native/splash-screen": "4.3.2",
     "@ionic-native/status-bar": "4.3.2",
+    "@ionic-native/user-agent": "^5.4.0",
     "@ionic/storage": "2.1.3",
-    "ionic-angular": "3.9.2",
-    "ionicons": "3.0.0",
-    "rxjs": "5.5.2",
-    "sw-toolbox": "3.6.0",
-    "zone.js": "0.8.18",
-    "@ionic-native/camera": "4.3.2",
     "@ngx-translate/core": "8.0.0",
-    "@ngx-translate/http-loader": "^2.0.0"
+    "@ngx-translate/http-loader": "^2.0.0",
+    "@types/jquery": "^3.3.29",
+    "call-number": "^1.0.1",
+    "chart.js": "^2.7.3",
+    "com-sarriaroman-photoviewer": "^1.1.18",
+    "com.telerik.plugins.nativepagetransitions": "^0.6.5",
+    "cordova-android": "7.1.4",
+    "cordova-android-support-gradle-release": "^1.4.5",
+    "cordova-base64-to-gallery": "^4.1.3",
+    "cordova-custom-config": "^5.0.3",
+    "cordova-plugin-app-event": "^1.2.1",
+    "cordova-plugin-badge": "^0.8.8",
+    "cordova-plugin-camera": "^4.0.3",
+    "cordova-plugin-device": "2.0.2",
+    "cordova-plugin-device-motion": "^2.0.1",
+    "cordova-plugin-file": "^6.0.1",
+    "cordova-plugin-inappbrowser": "^3.0.0",
+    "cordova-plugin-ionic-webview": "^3.0.0",
+    "cordova-plugin-local-notification": "~0.9.0-beta.3",
+    "cordova-plugin-paystack": "^3.2.0",
+    "cordova-plugin-photo-library": "^2.2.1",
+    "cordova-plugin-splashscreen": "^5.0.2",
+    "cordova-plugin-statusbar": "^2.4.2",
+    "cordova-plugin-whitelist": "^1.3.1",
+    "cordova-plugin-x-socialsharing": "^5.4.3",
+    "cordova-useragent": "git+https://github.com/LouisT/cordova-useragent.git",
+    "cordova.plugins.diagnostic": "^3.6.5",
+    "dom-to-image": "^2.6.0",
+    "es6-promise-plugin": "^4.2.2",
+    "font-awesome": "^4.7.0",
+    "hammerjs": "^2.0.8",
+    "im.ltdev.cordova.UserAgent": "https://github.com/LouisT/cordova-useragent",
+    "ionic-angular": "^3.9.2",
+    "ionic-plugin-keyboard": "^2.2.1",
+    "ionic2-super-tabs": "^4.1.4",
+    "ionicons": "3.0.0",
+    "jquery": "^3.3.1",
+    "moment": "^2.22.2",
+    "mx.ferreyra.callnumber": "~0.0.2",
+    "ng2-charts": "^1.6.0",
+    "ngx-gallery": "^5.9.0",
+    "rxjs": "^5.5.11",
+    "sw-toolbox": "3.6.0",
+    "zone.js": "^0.8.18"
   },
   "devDependencies": {
-    "@ionic/app-scripts": "3.1.0",
-    "typescript": "2.4.2"
+    "@ionic/app-scripts": "^3.2.2",
+    "@ionic/lab": "1.0.24",
+    "typescript": "2.8.3"
   },
-  "description": "An Ionic project"
+  "description": "A Community Sponsorship project",
+  "cordova": {
+    "plugins": {
+      "com.telerik.plugins.nativepagetransitions": {},
+      "cordova-base64-to-gallery": {},
+      "mx.ferreyra.callnumber": {},
+      "com-sarriaroman-photoviewer": {},
+      "cordova-plugin-x-socialsharing": {
+        "ANDROID_SUPPORT_V4_VERSION": "27+"
+      },
+      "cordova-plugin-inappbrowser": {},
+      "ionic-plugin-keyboard": {},
+      "cordova-plugin-whitelist": {},
+      "cordova-plugin-device": {},
+      "cordova-plugin-splashscreen": {},
+      "cordova-plugin-ionic-webview": {
+        "ANDROID_SUPPORT_ANNOTATIONS_VERSION": "27.+"
+      },
+      "cordova.plugins.diagnostic": {},
+      "cordova-android-support-gradle-release": {
+        "ANDROID_SUPPORT_VERSION": "27.+",
+        "ANDROID_SUPPORT_V4_VERSION": "27.+"
+      },
+      "call-number": {},
+      "cordova-plugin-camera": {},
+      "cordova-custom-config": {},
+      "cordova-plugin-statusbar": {},
+      "cordova-plugin-app-event": {},
+      "cordova-plugin-paystack": {},
+      "cordova-plugin-local-notification": {},
+      "cordova-plugin-photo-library": {
+        "PHOTO_LIBRARY_USAGE_DESCRIPTION": "To choose photos"
+      },
+      "im.ltdev.cordova.UserAgent": {}
+    },
+    "platforms": [
+      "android"
+    ]
+  }
 }

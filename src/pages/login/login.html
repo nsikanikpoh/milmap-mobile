@@ -1,39 +1,72 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>{{ 'LOGIN_TITLE' | translate }}</ion-title>
+    <ion-title>MilMap</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content>
-  <form (submit)="doLogin()">
-    <ion-list>
 
+<ion-content class="background">
+
+  <ion-card>
+    <ion-card-header>
+      Login
+    </ion-card-header>
+    
+    <ion-card-content>
+      
+    <ion-list no-lines>
+        <form novalidate (ngSubmit)="doLogin()" [formGroup]="signinform">
+
+  <div class="spacer" style="height: 10px;"></div>
       <ion-item>
-        <ion-label fixed>{{ 'EMAIL' | translate }}</ion-label>
-        <ion-input type="email" [(ngModel)]="account.email" name="email"></ion-input>
+        
+        <ion-input type="email" placeholder="Email" [(ngModel)]="account.email" formControlName="email" [class.error1]="!signinform.controls.email.valid && signinform.controls.email.dirty"></ion-input>
+      </ion-item>
+      <ion-item no-lines *ngIf="( signinform.get('email').hasError('minlength') || signinform.get('email').hasError('pattern') ||signinform.get('email').hasError('required') ) && signinform.get('email').touched">
+          <div class="error" *ngIf="signinform.get('email').hasError('required') && signinform.get('email').touched">
+            Please input your email
+          </div>
+          <div class="error" *ngIf="signinform.get('email').hasError('pattern') && signinform.get('email').touched">
+            Email address invalid
+          </div>
+        </ion-item>
+      <div class="spacer" style="height: 5px;"></div>
+      <ion-item>
+     
+        <ion-input type="password" placeholder="Password" [(ngModel)]="account.password" formControlName="password" [class.error1]="!signinform.controls.password.valid && signinform.controls.password.dirty"></ion-input>
       </ion-item>
 
-      <!--
-      Want to use a Username instead of an Email? Here you go:
+      <ion-item no-lines *ngIf="( signinform.get('password').hasError('minlength') || signinform.get('password').hasError('maxlength') ||signinform.get('password').hasError('required') ) && signinform.get('password').touched">
+          <div class="error" *ngIf="signinform.get('password').hasError('required') && signinform.get('password').touched">
+            Please input your password
+          </div>
+          <div class="error" *ngIf="signinform.get('password').hasError('minlength') && signinform.get('password').touched">
+            Minimum 6 characters
+          </div>
+          <div class="error" *ngIf="signinform.get('password').hasError('maxlength') && signinform.get('password').touched">
+            Maximum 20 characters
+          </div>
+        </ion-item>
 
-      <ion-item>
-        <ion-label floating>{{ 'USERNAME' | translate }}</ion-label>
-        <ion-input type="text" [(ngModel)]="account.username" name="username"></ion-input>
-      </ion-item>
-      -->
-
-      <ion-item>
-        <ion-label fixed>{{ 'PASSWORD' | translate }}</ion-label>
-        <ion-input type="password" [(ngModel)]="account.password" name="password"></ion-input>
-      </ion-item>
-
-      <div padding>
-        <button ion-button color="primary" block>{{ 'LOGIN_BUTTON' | translate }}</button>
-      </div>
-
+        <div class="spacer" style="height: 10px;"></div>
+        <button type="submit" ion-button block round outline color="light" [disabled]="signinform.invalid">{{ 'LOGIN_BUTTON' | translate }}</button>
+      </form>
     </ion-list>
-  </form>
-</ion-content>
+      <div class="spacer" style="height: 10px;"></div>
+  <button ion-button clear full color="light" (click)="passwordreset()">Forgot login details ? <b>Get Help</b></button>
+ 
+  <div class="spacer" style="height: 10px;"></div>
+  <p>OR</p>
+  <div class="spacer" style="height: 10px;"></div>
+<button ion-button clear full color="light" (click)="signup()">Don't have an account? Sign up</button>
+
+
+  </ion-card-content>
+  </ion-card>
+  </ion-content>
+
+
+

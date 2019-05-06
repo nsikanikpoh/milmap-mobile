@@ -1,0 +1,94 @@
+import {  
+    Camera,  
+    CameraOptions  
+} from '@ionic-native/camera';  
+import {  
+    File  
+} from '@ionic-native/file';  
+//here injecting camera and file class to our component part as object  
+constructor(private camera: Camera, private file: File) {}  
+//here this method is used to start a camera and take a picture and save a picture in specific mentioned part.  
+public getPicture() {  
+        let base64ImageData;  
+        const options: CameraOptions = {  
+            //here is the picture quality in range 0-100 default value 50. Optional field  
+            quality: 100,  
+            /**here is the format of an output file. 
+             *destination type default is FILE_URI. 
+             * DATA_URL: 0 (number) - base64-encoded string,  
+             * FILE_URI: 1 (number)- Return image file URI, 
+             * NATIVE_URI: 2 (number)- Return image native URI        
+             */  
+            destinationType: this.camera.DestinationType.DATA_URL,  
+            /**here is the returned image file format 
+             *default format is JPEG 
+             * JPEG:0 (number), 
+             * PNG:1 (number), 
+             */  
+            encodingType: this.camera.EncodingType.JPEG,  
+            /** Only works when Picture Source Type is PHOTOLIBRARY or  SAVEDPHOTOALBUM.  
+             *PICTURE: 0 allow selection of still pictures only. (DEFAULT) 
+             *VIDEO: 1 allow selection of video only.        
+             */  
+            mediaType: this.camera.MediaType.PICTURE,  
+            /**here set the source of the picture 
+             *Default is CAMERA.  
+             *PHOTOLIBRARY : 0,  
+             *CAMERA : 1,  
+             *SAVEDPHOTOALBUM : 2 
+             */  
+            sourceType: this.camera.PictureSourceType.CAMERA  
+        }  
+        this.camera.getPicture(options).then((imageData) => {  
+                //here converting a normal image data to base64 image data.  
+                base64ImageData = 'data:image/jpeg;base64,' + imageData;  
+                /**here passing three arguments to method 
+                *Base64 Data 
+ 
+                *Folder Name 
+ 
+                *File Name 
+                */  
+                this.writeFile(base64ImageData, “My Picture”, “sample.jpeg”);  
+            }, (error) => {  
+                console.log(Error Occured: ' + error);       
+                });  
+        }  
+        //here is the method is used to write a file in storage  
+        public writeFile(base64Data: any, folderName: string, fileName: any) {  
+            let contentType = this.getContentType(base64Data);  
+            let DataBlob = this.base64toBlob(content, contentType);  
+            // here iam mentioned this line this.file.externalRootDirectory is a native pre-defined file path storage. You can change a file path whatever pre-defined method.  
+            let filePath = this.file.externalRootDirectory + folderName;  
+            this.file.writeFile(filePath, fileName, DataBlob, contentType).then((success) => {  
+                console.log("File Writed Successfully", success);  
+            }).catch((err) => {  
+                console.log("Error Occured While Writing File", err);  
+            })  
+        }  
+        //here is the method is used to get content type of an bas64 data  
+        public getContentType(base64Data: any) {  
+            let block = base64Data.split(";");  
+            let contentType = block[0].split(":")[1];  
+            return contentType;  
+        }  
+        //here is the method is used to convert base64 data to blob data  
+        public base64toBlob(b64Data, contentType) {  
+            contentType = contentType || '';  
+            sliceSize = 512;  
+            let byteCharacters = atob(b64Data);  
+            let byteArrays = [];  
+            for (let offset = 0; offset < byteCharacters.length; offset += sliceSize) {  
+                let slice = byteCharacters.slice(offset, offset + sliceSize);  
+                let byteNumbers = new Array(slice.length);  
+                for (let i = 0; i < slice.length; i++) {  
+                    byteNumbers[i] = slice.charCodeAt(i);  
+                }  
+                var byteArray = new Uint8Array(byteNumbers);  
+                byteArrays.push(byteArray);  
+            }  
+            let blob = new Blob(byteArrays, {  
+                type: contentType  
+            });  
+            return blob;  
+        } 

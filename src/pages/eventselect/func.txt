@@ -1,0 +1,91 @@
+code: "jQuery('#dlink').on('click', function() {  var addressValue = $(this).attr('href');base64Data = addressValue; alert(addressValue); alert(base64Data);});"
+   
+
+browser.on('loadstart').subscribe(e => {
+    var base64Data = e.url;
+ 
+    var extension = base64Data.slice(0,20);
+  if (extension == 'data:image/png;base64') {
+    browser.close(); // close window or you get exception
+    document.addEventListener('deviceready', function () {
+      setTimeout(() => {
+         // stops the refresher 2 seconds after retreiving the Data
+         cordova.base64ToGallery(
+          base64Data,
+          {
+              prefix: 'img_',
+              mediaScanner: true
+          },
+   
+          function(path) {
+              console.log(path);
+          
+            alert('Your collage has been saved to:'+path);
+           
+          },
+          function(err) {
+              console.error(err);
+          
+             alert('Something went wrong on saving your collage.'+err);
+            
+          }
+      );
+      }, 2000);
+     
+    });
+
+  }
+ });
+
+
+
+
+
+
+
+
+
+
+  browser.on('loadstop').subscribe(e => {
+    var base64Data;
+ 
+    browser.executeScript({
+      file: "https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js",
+      
+      code: "jQuery('#dlink').on('click', function() {  var addressValue = $(this).attr('href'); base64Data = addressValue; alert(addressValue); alert(base64Data);});"
+
+   });
+
+    
+    
+  if (base64Data != null) {
+    browser.close(); // close window or you get exception
+    document.addEventListener('deviceready', function () {
+      setTimeout(() => {
+         // stops the refresher 2 seconds after retreiving the Data
+         cordova.base64ToGallery(
+          base64Data,
+          {
+              prefix: 'img_',
+              mediaScanner: true
+          },
+   
+          function(path) {
+              console.log(path);
+          
+            alert('Your collage has been saved to:'+path);
+           
+          },
+          function(err) {
+              console.error(err);
+          
+             alert('Something went wrong on saving your collage.'+err);
+            
+          }
+      );
+      }, 3000);
+     
+    });
+
+  }
+ });

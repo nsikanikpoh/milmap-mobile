@@ -1,0 +1,113 @@
+<ion-header>
+    <ion-navbar>
+       
+            <ion-title>Sponsorship Info</ion-title>
+           
+          
+    </ion-navbar>
+  </ion-header>
+
+<ion-content padding>
+
+<ion-card>
+    <ion-card-header style="color: rgb(190, 24, 196);">
+     Details
+    </ion-card-header>
+
+   
+  <ion-card-content>
+    <ion-row>
+ 
+      <ion-col center text-center>
+  <p style="color: rgb(196, 24, 47);">Sponsorship Area: {{item.interest_line.name}}</p>
+</ion-col>
+</ion-row>
+      <ion-row>
+ 
+          <ion-col center text-center>
+          <ion-icon name="home" item-start></ion-icon>
+          <h2 style="color: rgb(24, 41, 196);">Status: {{item.sponsorship.status}}</h2>
+        </ion-col>
+        </ion-row>
+        <div class="pyro">
+            <div class="before"></div>
+            <div class="after"></div>
+          </div>
+       
+        <ion-row>
+ 
+            <ion-col center text-center>
+            <ion-icon name="map" item-start></ion-icon>
+            <h2 style="color: rgb(196, 64, 24);">Gateway Response: {{item.sponsorship.gateway_response}}</h2>
+          </ion-col>
+          </ion-row>
+
+       
+          <ion-row>
+ 
+              <ion-col center text-center>
+            <ion-icon name="flame" item-start></ion-icon>
+            <h2 style="color: rgb(41, 24, 196);">Channel: {{item.sponsorship.card}}</h2>
+          </ion-col>
+          </ion-row>
+
+          
+        <ion-row>
+
+            <ion-col center text-center>
+              <ion-icon name="flame" item-start></ion-icon>
+              <h2 style="color: rgb(196, 24, 67);">Transaction Reference: {{item.sponsorship.reference}}</h2>
+            </ion-col>
+            </ion-row>
+  
+
+          
+        <ion-row>
+ 
+            <ion-col center text-center>
+              <ion-icon name="alarm" item-start></ion-icon>
+              <h2 style="color: rgb(190, 24, 196);">Currency: {{item.sponsorship.currency}}</h2>
+            </ion-col>
+            </ion-row>
+
+
+
+   
+  
+   
+    
+
+
+    <ion-row>
+ 
+        <ion-col center text-center>
+    <p style="color: rgb(12, 116, 34);">Amount: &#x20A6;{{item.sponsorship.amount}}</p>
+  </ion-col>
+</ion-row>
+
+
+<ion-row>
+ 
+  <ion-col center text-center>
+  <ion-icon name="home" item-start></ion-icon>
+  <h2 style="color: rgb(190, 24, 196);">Sponsor: {{item.sponsor.name}}</h2>
+</ion-col>
+</ion-row>
+   
+    
+      <ion-row>
+ 
+          <ion-col center text-center>
+      <ion-note style="color: rgb(35, 24, 196);">
+       Time Created: {{item.sponsorship.created_at}}
+      </ion-note>
+    </ion-col>
+  </ion-row>
+  </ion-card-content>
+  <div class="pyro">
+      <div class="before"></div>
+      <div class="after"></div>
+    </div>
+</ion-card>
+
+</ion-content>

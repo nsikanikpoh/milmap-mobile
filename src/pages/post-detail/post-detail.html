@@ -1,0 +1,103 @@
+
+<ion-header>
+    <ion-navbar>
+      <ion-title>
+        {{data.title}}
+      </ion-title>
+  
+    </ion-navbar>
+  </ion-header>
+
+<ion-content padding>
+  
+      
+         
+          <ion-row>
+              
+              <div class="wrapping-list">
+                <div class="item">
+                <h2>{{item.title}}</h2>
+                <ion-avatar item-start>
+                    <ion-icon name='heart'></ion-icon>
+                  </ion-avatar>    <img class="img" src="https://milmap.actionaid-ngr.org:3443/{{data.file.url}}"/>
+      
+        
+            
+
+          <p>{{lastPaymentDate}}</p>
+          <p>By: {{data.user.name}}</p>
+
+          <span [innerHTML]=item.body></span>
+        <ion-row>
+          <ion-col>
+            <button ion-button icon-start clear small>
+              <ion-icon name="thumbs-up"></ion-icon>
+              <div></div>
+            </button>
+          </ion-col>
+          <ion-col>
+            <button ion-button icon-start clear small>
+              <ion-icon name="text"></ion-icon>
+              <div>{{data.comments.length}} Comments</div>
+            </button>
+          </ion-col>
+          <ion-col center text-center>
+              <ion-list>
+    
+                  <ion-item *ngFor="let item of comments">
+                    
+                      <ion-card>
+                     
+                          <ion-note>
+                            {{item.body}}
+                            </ion-note>
+                            <ion-col>
+                               
+                                  
+                                  <div>Commenter {{item.commenter_type}} {{item.commenter.name}}</div>
+                               
+                              </ion-col>
+                  </ion-card>
+               
+                  </ion-item>
+
+
+                  <div *ngIf="new_com.length > 1">
+                      <ion-card>
+                     
+                          <ion-note>
+                            {{new_com}}
+                            </ion-note>
+                            <ion-col>
+                               
+                        
+                                  <div>POSTER: {{name}}</div>
+                               
+                              </ion-col>
+                      </ion-card>
+
+                    </div>
+                  
+                </ion-list>
+
+
+     
+          </ion-col>
+        </ion-row>
+      
+    
+
+     
+
+          <ion-item>
+            <ion-label floating>Post Your Comment</ion-label>
+            <ion-textarea [(ngModel)]="account.comment"></ion-textarea>
+          </ion-item>
+          <button ion-button full color="lightText" (click)="comment(data)">Comment</button>
+        
+        </div>
+      </div>
+        </ion-row>   
+      
+
+</ion-content>

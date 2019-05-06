@@ -1,0 +1,367 @@
+body{
+	background-image: url('/assets/img/gray_jean.png');
+}
+/*
+div#header{
+	margin: 0;
+	color: white;
+	height: 80px;
+	padding: 2%;
+	background-color:#005E9D;
+}
+*/
+
+div#header{
+	position: relative;
+	height: 90px;
+}
+
+div#header_background{
+	background-image: url(/assets/img/pattern.jpg);
+	z-index: 1;
+	width: 100%;
+	opacity: 0.8;
+	margin: 0;
+	display: block;
+	position: absolute;
+	height: 90px;
+}
+
+div#header_background::before{
+  background-color: rgba(0, 94, 157, 0.78);
+  content: '';
+  display: block;
+  height: 100%;
+  position: absolute;
+  width: 100%;
+}
+
+div#header_text{
+	position: absolute;
+	z-index: 5;
+	margin: 20px 0px 0px 20px;
+}
+
+h1.title{
+	color:#fff;
+	font-weight:400;
+	font-size: 2.5em;
+}
+
+p.instructions_text{
+	font-weight: 300;
+	font-size: 1.6em;
+	color: #005E9D;
+	display: inline-block;
+}
+
+div.instruction_num{
+	border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    padding: 8px;
+    margin-right: 3px;
+    background: #F53FC7;
+    color: #fff;
+	display: inline-block;
+	padding-left: 10px;
+	padding-top: 3px;
+}
+
+.px{
+	font-weight: 400;
+	font-size: 14px;
+}
+
+.selected_background_color{
+	cursor: pointer;
+}
+
+.color_sample{
+	width: 35px;	
+	height: 35px;
+	float: left;
+	border: solid 1px gainsboro; 
+	cursor: pointer;
+	background-color: white;
+}
+
+.option_no_input{
+	margin-top: 12px;
+}
+
+.option_input{
+	margin-top: 7px;
+}
+
+#selected_color_sample{
+	width: 20px;	
+	height: 20px;
+	float: left;
+	border: solid 1px gainsboro; 
+	cursor: pointer;
+	background-color: white;
+}
+
+#selected_color_label{
+	width: 64%;
+	float: left;
+	text-align: center;	
+}
+
+div#total_photos_container{
+	clear: both;
+	width: 80%;
+	margin: 0% 10% 0% 10%;
+	font-size: 15px;
+	font-weight: 300;
+}
+
+div.options_container{
+	display: block;
+	overflow: auto;
+	padding: 10px 0px 15px 2px;
+	text-align: center;
+}
+
+#download{
+	margin-bottom: -4px;
+}
+
+#layout_group_container{
+	clear: both;
+}
+
+.total_photos{
+	margin-right: 20px;
+	width: 45px;
+	font-size: medium;
+	height: 33px;	
+}
+
+.total_photos:hover{
+	text-decoration: none;
+}
+
+.instructions_container{
+	padding: 0px 10% 0px 10%;
+	width: 80%;
+	margin: 35px 10% 30px 10%;
+	text-align: left;
+	display: inline-block;
+}
+
+#screen_1{
+	text-align: center;
+}
+
+div#header h1{
+	margin: 0;
+}
+span#camera_icon{
+	font-size: 30px;
+}
+
+div.filters_group{
+	background-image: url('/assets/img/ep_naturalblack.png');
+	padding-top: 17px;
+	text-align: center;
+}
+
+div.filter_sample{
+	text-align: center;
+	display: inline-block;
+	cursor: pointer;
+	width: 80px;
+	margin: 10px;
+}
+
+div.filter_thumbnail{	
+	background-image: url("/assets/img/sky.jpg");
+	max-width:200px;
+    margin: 10px 0px 0px 0px;
+	height: 80px;	
+}
+
+span.filter_name{
+	text-transform:capitalize;
+	color:#fff;
+	font-weight:700;
+}
+
+div#settings{
+	background-color: white;
+	display: table-cell;
+	height: 50vh;
+}
+
+#layout_main_container{
+	text-align: left;
+}
+
+a.title{
+	text-decoration: none;
+}
+
+div.selected_filter{
+	border:3px solid #5D97BF;
+	color: #5D97BF;
+}
+
+#previous{
+	margin-top: 5px;
+}
+
+div.button_containe{
+	position: relative;
+	z-index: 10;
+}
+
+#download{visibility:hidden;}
+div.layout_group,div#screen_2{display: none;}
+div#group_2{display: block;}
+
+div#screen_3{width: 100%;}
+
+div.photo_layout_example{
+	height: 150px;
+	width: 200px;
+	background-color: #fff;
+	display: inline-block;
+	margin: 2%;
+	padding: 1%;
+	cursor: pointer;
+	border: #D8D8D8 1px solid;
+	position: relative;	
+	transition: 0.5s;
+}
+
+div.photo_layout_example:hover{
+	-webkit-transform: scale(1.1);
+    transform: scale(1.05);
+    backface-visibility: hidden;
+}
+
+span.select_text{
+	font-size: 18px;
+	color: #F53FC7;
+	font-weight: 400;
+	-webkit-font-smoothing: antialiased;
+}
+
+div.select_layout{
+	position: absolute;
+	width: 80px;
+	height: 40px;	
+	margin: 45px 0px 0px 52px;
+	padding-top:5px;
+	display: none;
+}
+
+div.select_layout > span{
+	color: #005E9D;
+}
+
+div.photo_layout_example > div:not(.select_layout){
+	background-color: #FFF983;
+    border: 1px solid #EBE333;
+}
+
+div#photo_layout_main{
+	height: 400px;
+	width: 600px;
+	background-color: #fff;
+	display: inline-block;
+	margin: 30px 15px 0px 15px;
+	padding: 15px;
+	border: #D8D8D8 1px solid;
+	text-align: center;
+}
+
+.photo{
+	z-index: 10;
+	overflow: hidden;
+	background-color: #FFFFE0;
+	border: 1px solid #D3D3D3;
+	border-radius: 9px;
+}
+
+.draggable_photo {
+	z-index: 9;
+	height: 100%;
+	margin: 10px 5px 0 0;
+	cursor: move;
+	position: relative;
+	top: -100px;
+	left: -50px;
+}
+
+.button_container{
+	position: relative;
+}
+
+.close_icon{
+	cursor: pointer;
+	height: 25px;
+	display: none;
+	position: absolute;
+	z-index: 10;
+	right: 0px;
+}
+
+.btn-filter{
+	z-index: 10;	
+	display: none;
+	position: absolute;
+	left: 0px;
+}
+
+div.selected{
+	border: 2px solid #F53FC7;
+}
+
+#screen_3{
+	width: 80%;
+	margin: 2% 10% 1% 10%;
+
+}
+
+#flters{
+	width: 80%;
+	margin: 2% 10% 1% 10%;
+
+}
+/**** STYLES FOR CHOOSE FILE BUTTONS ****/
+
+.inputfile {
+    width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: 3;
+}
+
+.inputfile + label {
+    font-size: 1.05em;
+    font-weight: 300;
+    color: #fff;
+    background-color: #5BC0DE;
+    display: inline-block;
+    cursor: pointer;
+    margin-top: 6%;
+    padding: 6px;
+    border-radius: 7px;
+    border: 1px solid #5BC0DE;
+}
+
+.inputfile:focus + label,
+.inputfile + label:hover {
+    background-color: #007ACC;
+}
+
+.inputfile:focus + label {
+	outline: 1px dotted #000;
+	outline: -webkit-focus-ring-color auto 5px;
+}
+

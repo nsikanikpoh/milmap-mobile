@@ -1,0 +1,124 @@
+<!--
+  Generated template for the DonationPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+      <ion-toolbar>
+          <ion-title>Quick Donation</ion-title>
+        
+        
+        </ion-toolbar>
+  </ion-navbar>
+</ion-header>
+
+<ion-content >
+
+
+<ion-card>
+<ion-card-header>
+  <h2 style="color:teal;">Thanks for your interest <br/> to Support us</h2>
+</ion-card-header>
+
+<ion-card-content>
+  
+  <form novalidate (ngSubmit)="presentConfirm()" [formGroup]="signinform">
+    <ion-list no-lines>
+      <div class="spacer" style="height: 10px;"></div>
+      <ion-item>
+        <ion-input placeholder="Enter your name"  [(ngModel)]="account.name" type="text" formControlName="name" [class.error1]="!signinform.controls.name.valid && signinform.controls.name.dirty"></ion-input>
+      </ion-item>
+
+  
+    <ion-item no-lines *ngIf="( signinform.get('name').hasError('minlength') || signinform.get('name').hasError('maxlength') ||signinform.get('name').hasError('pattern') ||signinform.get('name').hasError('required') ) && signinform.get('name').touched">
+      <div class="error" *ngIf="signinform.get('name').hasError('required') && signinform.get('name').touched">
+        Please input your Name
+      </div>
+      <div class="error" *ngIf="signinform.get('name').hasError('minlength') && signinform.get('name').touched">
+        Minimum 4 characters
+      </div>
+      <div class="error" *ngIf="signinform.get('name').hasError('maxlength') && signinform.get('name').touched">
+        Maximum 30 characters
+      </div>
+      <div class="error" *ngIf="signinform.get('name').hasError('pattern') && signinform.get('name').touched">
+        Just use alphabet character
+      </div>
+    </ion-item>
+
+  <div class="spacer" style="height: 10px;"></div>
+      <ion-item>
+        
+        <ion-input type="email" placeholder="Email" [(ngModel)]="account.email" formControlName="email" [class.error1]="!signinform.controls.email.valid && signinform.controls.email.dirty"></ion-input>
+      </ion-item>
+      <ion-item no-lines *ngIf="( signinform.get('email').hasError('minlength') || signinform.get('email').hasError('pattern') ||signinform.get('email').hasError('required') ) && signinform.get('email').touched">
+          <div class="error" *ngIf="signinform.get('email').hasError('required') && signinform.get('email').touched">
+            Please input your email
+          </div>
+          <div class="error" *ngIf="signinform.get('email').hasError('pattern') && signinform.get('email').touched">
+            Email address invalid
+          </div>
+        </ion-item>
+      <div class="spacer" style="height: 5px;"></div>
+      <ion-item>
+     
+        <ion-input placeholder="Phone Number"  [(ngModel)]="account.tel" type="number" formControlName="tel" [class.error1]="!signinform.controls.tel.valid && signinform.controls.tel.dirty"></ion-input>
+      </ion-item>
+
+      <ion-item no-lines *ngIf="( signinform.get('tel').hasError('minlength') || signinform.get('tel').hasError('maxlength') ||signinform.get('tel').hasError('required') ) && signinform.get('tel').touched">
+          <div class="error" *ngIf="signinform.get('tel').hasError('required') && signinform.get('tel').touched">
+            Please input your phone number
+          </div>
+          <div class="error" *ngIf="signinform.get('tel').hasError('minlength') && signinform.get('tel').touched">
+            Plese input 11 digits
+          </div>
+          <div class="error" *ngIf="signinform.get('tel').hasError('maxlength') && signinform.get('tel').touched">
+            Maximum 13 Numbers
+          </div>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Select Amount</ion-label>
+          <ion-select  [(ngModel)]="account.amount"
+          type="number"  formControlName="amount" [class.error]="!signinform.controls.amount.valid && (signinform.controls.amount.dirty || submitAttempt)">
+            <ion-option value=2000>N2000</ion-option>
+            <ion-option value=5000>N3000</ion-option>
+            <ion-option value=5000>N5000</ion-option>
+            <ion-option value=10000>N10,000</ion-option>
+            <ion-option value=10000>N15,000</ion-option>
+            <ion-option value=20000>N20,000</ion-option> 
+            <ion-option value=50000>N50,000</ion-option>
+            <ion-option value=100000>N100,000</ion-option>
+            <ion-option value=150000>N150,000</ion-option>
+            <ion-option value=200000>N200,000</ion-option>
+            <ion-option value=300000>N300,000</ion-option>
+            <ion-option value=500000>N500,000</ion-option>
+            <ion-option value=1000000>N1,000,000</ion-option>
+            <ion-option value=2000000>N2,000,000</ion-option>
+            <ion-option value=3000000>N3,000,000</ion-option>
+            <ion-option value=4000000>N4,000,000</ion-option>
+            <ion-option value=5000000>N5,000,000</ion-option>
+            <ion-option value=10000000>N10,000,000</ion-option>
+          </ion-select>
+        </ion-item>
+        <ion-item no-lines *ngIf="signinform.get('amount').hasError('required')  && signinform.get('amount').touched">
+          <div class="error" *ngIf="signinform.get('amount').hasError('required') && signinform.get('amount').touched">
+            Please select amount
+          </div>
+        </ion-item>
+
+        <div class="spacer" style="height: 10px;"></div>
+        <button type="submit" ion-button block round color="primary" >Donate</button>
+     
+     </ion-list>
+      </form>
+
+
+<div class="spacer" style="height: 10px;"></div>
+
+
+</ion-card-content>
+</ion-card>
+
+</ion-content>

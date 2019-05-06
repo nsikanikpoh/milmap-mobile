@@ -1,0 +1,126 @@
+<ion-header>
+    <ion-navbar>
+      <ion-title>
+          {{ item.name }}
+      </ion-title>
+     
+    </ion-navbar>
+  </ion-header>
+
+
+
+  <ion-content>
+
+      <ion-avatar center text-center>
+          <img src="https://milmap.actionaid-ngr.org:3443/{{item.image.url}}"/>
+          </ion-avatar>
+
+      <ion-list>
+
+        <ion-item>
+          <ion-label>Name: {{item.name}}</ion-label>
+        </ion-item>
+
+        <ion-item>
+            <ion-label>Tel:  {{item?.phone}} <button ion-button clear icon-only item-right (click)="callJoint(item.phone)"> <img class="imgr" src="assets/imgs/Call_Button_REd.png"/></button>
+            </ion-label>
+          </ion-item>
+
+          <ion-item>
+              <ion-label>Email: {{item.email}}</ion-label>
+            </ion-item>
+
+            <ion-item>
+                <ion-label>State: {{item.state}}</ion-label>
+              </ion-item>
+
+              <ion-item>
+                  <ion-label>City: {{item.location}}</ion-label>
+                </ion-item>
+
+
+              <ion-item>
+                  <ion-label>Gender: {{item.gender}}</ion-label>
+                </ion-item>
+
+
+              <ion-item>
+                  <ion-label>Address: {{item.address}}</ion-label>
+                </ion-item>
+
+
+          <ion-item>
+              <ion-label>Opportunity: {{item.opportunity}}</ion-label>
+              <div *ngIf="item.opportunity == 'No'">
+                  <button item-right (click)="doOpptunity(item.id)"></button>
+            </div>
+          </ion-item>
+        
+         
+        
+       
+        
+        </ion-list>
+
+        <ion-row>
+          
+          <ion-col>
+            <button ion-button icon-start clear small>
+              <ion-icon name="text"></ion-icon>
+              <div>{{comments?.length}} Conversations</div>
+            </button>
+          </ion-col>
+          <ion-col center text-center>
+              <ion-list>
+    
+                  <ion-item *ngFor="let itm of comments">
+                    
+                      <ion-card>
+                     
+                          <ion-note>
+                            {{itm.body}}
+                            </ion-note>
+                            <ion-col>
+                               
+                        
+                                  <div>POSTER: {{name}}</div>
+                               
+                              </ion-col>
+                      </ion-card>
+               
+                  </ion-item>
+
+                  <div *ngIf="new_com.length > 1">
+                      <ion-card>
+                     
+                          <ion-note>
+                            {{new_com}}
+                            </ion-note>
+                            <ion-col>
+                               
+                        
+                                  <div>POSTER: {{name}}</div>
+                               
+                              </ion-col>
+                      </ion-card>
+
+                    </div>
+                  
+                </ion-list>
+
+
+     
+          </ion-col>
+        </ion-row>
+      
+          <ion-item>
+            <ion-label floating>Post a new Conversation</ion-label>
+            <ion-textarea [(ngModel)]="account.comment"></ion-textarea>
+          </ion-item>
+          <button ion-button full color="lightText" (click)="comment(item)">Submit</button>
+             
+
+
+
+
+  </ion-content>

@@ -1,0 +1,35 @@
+<!--
+  Generated template for the ProfilePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+    <ion-navbar>
+       
+            <ion-title>My Profile info</ion-title>
+          
+          
+    </ion-navbar>
+  </ion-header>
+
+
+<ion-content padding>
+    <ion-avatar center text-center>
+        <img src="https://milmap.herokuapp.com{{responsData.image.url}}"/>
+        </ion-avatar>
+  
+    <div class="item-detail" padding>
+      <h2>Name: {{responsData.name}}</h2>
+      <h3 style="color:orange;">Level: {{responsData.type}}</h3>
+      <p>Tel: {{responsData.phone}}
+      </p>
+      <p>Email: {{responsData.email}}</p>
+      <p>State: {{responsData.state}}</p>
+      <p>City: {{responsData.location}}</p>
+      <p>Gender: {{responsData.gender}}</p>
+      <p>Address: {{responsData.address}}</p>
+    </div>
+    
+
+</ion-content>

@@ -1,0 +1,35 @@
+page-editprofile {
+    .profile-picture {
+        position: relative;
+    
+        .profile-picture__icon {
+          border-radius: 50%;
+          background: transparentize(color($colors, dark), 0.2);
+          color: color($colors, light);
+          font-size: 2rem;
+    
+          position: absolute;
+          left: 55%;
+          width: 32px;
+          height: 32px;
+          padding-top: 3px;
+        }
+    
+        .profile-picture__image {
+          border-radius: 50%;
+          height: 128px;
+          width: 128px;
+        }
+      }
+    .error {
+        color: rgb(223, 62, 62);
+        font-size: 11px;
+      }
+      
+      .error1 {
+        color: rgb(75, 75, 75);
+        border-bottom: 1px solid #ff0000;
+      }
+
+
+}

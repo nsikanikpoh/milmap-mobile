@@ -14,3 +14,61 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+
+.profile-picture {
+    position: relative;
+  
+    .profile-picture__icon {
+      border-radius: 50%;
+      background: transparentize(color($colors, dark), 0.2);
+      color: color($colors, light);
+      font-size: 2rem;
+  
+      position: absolute;
+      left: 55%;
+      width: 32px;
+      height: 32px;
+      padding-top: 3px;
+    }
+  
+    .profile-picture__image {
+      border-radius: 50%;
+      height: 128px;
+      width: 128px;
+    }
+  }
+  
+  
+  .platform-ios {
+      .title.title-center.header-item {
+        left: 49px!important;
+        right: 49px!important;
+      }
+    }
+    
+    .platform-android {
+      .title.title-left.header-item {
+        right: 68px!important;
+      }
+      .bay{
+        button{
+        color:#242424;
+      }
+      
+      button{
+        background: transparent !important;
+      }
+  
+      ion-list{
+        background: transparent !important;
+      }
+  
+      }
+  
+      .bay6{
+              background-color: rgba(99, 228, 221, 0.801);
+              color: #fff;
+          
+              }
+      
+    }

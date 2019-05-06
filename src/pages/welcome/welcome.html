@@ -1,13 +1,145 @@
-<ion-content scroll="false">
-  <div class="splash-bg"></div>
-  <div class="splash-info">
-    <div class="splash-logo"></div>
-    <div class="splash-intro">
-      {{ 'WELCOME_INTRO' | translate }}
-    </div>
-  </div>
-  <div padding>
-    <button ion-button block (click)="signup()">{{ 'SIGNUP' | translate }}</button>
-    <button ion-button block (click)="login()" class="login">{{ 'LOGIN' | translate }}</button>
-  </div>
-</ion-content>
+
+  <ion-content padding id="welcome" class="background">
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+
+    <ion-card>
+        <ion-card-header>
+           
+        </ion-card-header>
+        
+        <ion-card-content>
+         
+          <form novalidate (ngSubmit)="doLogin()" [formGroup]="signinform">
+            <ion-list no-lines>
+        
+          <div class="spacer" style="height: 10px;"></div>
+              <ion-item>
+                
+                <ion-label><ion-icon style="color:#fff;" name="person"></ion-icon></ion-label>
+                
+                <ion-input type="email" [(ngModel)]="account.email" formControlName="email" [class.error1]="!signinform.controls.email.valid && signinform.controls.email.dirty"></ion-input>
+              </ion-item>
+              <ion-item no-lines *ngIf="( signinform.get('email').hasError('minlength') || signinform.get('email').hasError('pattern') ||signinform.get('email').hasError('required') ) && signinform.get('email').touched">
+                  <div class="error" *ngIf="signinform.get('email').hasError('required') && signinform.get('email').touched">
+                    Please input your email
+                  </div>
+                  <div class="error" *ngIf="signinform.get('email').hasError('pattern') && signinform.get('email').touched">
+                    Email address invalid
+                  </div>
+                </ion-item>
+              <div class="spacer" style="height: 5px;"></div>
+              <ion-item>
+             
+                <ion-label><ion-icon style="color:#fff;" name="key"></ion-icon></ion-label>
+                  <ion-input type="password" [(ngModel)]="account.password" formControlName="password" [class.error1]="!signinform.controls.password.valid && signinform.controls.password.dirty"></ion-input>
+              </ion-item>
+        
+              <ion-item no-lines *ngIf="( signinform.get('password').hasError('minlength') || signinform.get('password').hasError('maxlength') ||signinform.get('password').hasError('required') ) && signinform.get('password').touched">
+                  <div class="error" *ngIf="signinform.get('password').hasError('required') && signinform.get('password').touched">
+                    Please input your password
+                  </div>
+                  <div class="error" *ngIf="signinform.get('password').hasError('minlength') && signinform.get('password').touched">
+                    Minimum 6 characters
+                  </div>
+                  <div class="error" *ngIf="signinform.get('password').hasError('maxlength') && signinform.get('password').touched">
+                    Maximum 20 characters
+                  </div>
+                </ion-item>
+                <a class="rex" (click)="passrest()" > 
+            Forgot Password?
+      </a>
+    <br/>
+                <div class="spacer" style="height: 10px;"></div>
+                
+
+
+             </ion-list>
+
+
+
+  
+   
+   
+    
+    <ion-grid>
+      
+      <ion-row>
+       
+      
+        <ion-col>
+          <button class="btnl" type="submit" ion-button round color="primary" [disabled]="signinform.invalid">{{ 'LOGIN_BUTTON' | translate }}</button>
+    
+      </ion-col>
+       <ion-col>
+       <a class="btnr" ion-button round (click)="signup()">Sign up</a>
+         
+        </ion-col>
+      
+      </ion-row>
+      </ion-grid>
+
+ 
+
+</form> 
+     
+
+
+  
+    
+
+
+      </ion-card-content>
+      </ion-card>
+
+
+      <ion-grid>
+      
+<ion-row>
+ 
+
+  <ion-col>
+      <a menuClose (click)="startApp()"> 
+                  <img src="assets/imgs/Quick.png" class="img"/>
+            <span class="re">Quick Donation</span>
+      </a>
+
+</ion-col>
+ <ion-col>
+      <a menuClose (click)="notification()"> 
+        
+                  <img src="assets/imgs/Notification.png" class="img"/>
+            <span class="re">Notifications</span>
+      </a>
+   
+  </ion-col>
+
+</ion-row>
+</ion-grid>
+<ion-grid>
+<ion-row>
+  <ion-col>
+      <a menuClose (click)="faq()"> 
+                  <img src="assets/imgs/FAQs.png" class="img"/>
+               <span class="re">FAQs</span>
+      </a>
+    </ion-col>
+
+    <ion-col>
+      
+        <a (click)="contact()"> 
+            
+                 
+                    <img src="assets/imgs/Us.png" class="img"/>
+             <span class="re">Contact Us</span>
+        </a>
+  
+</ion-col>
+</ion-row>
+
+</ion-grid>
+  </ion-content>
+

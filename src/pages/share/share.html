@@ -1,0 +1,44 @@
+<!--
+  Generated template for the SharePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<!-- Header Bar -->
+<ion-header>
+    <ion-navbar>
+       
+            <ion-title>Social Sharing</ion-title>
+          
+         
+    </ion-navbar>
+  </ion-header>
+
+<ion-content padding>
+  <!-- Cards containing quotes -->
+  <ion-card>
+    <!-- Quote aurthor -->
+    <ion-card-header>
+      <div *ngIf="userDetails.type == 'FundRaiser'">Get more Prospects with ease</div>
+      <div *ngIf="userDetails.type == 'Member' || userDetails.type == 'Champion' || userDetails.type == 'Patriot' || userDetails.type == 'Ambassador'">
+        Get more Referrals with ease</div>
+    </ion-card-header>
+    <!-- Quote Title -->
+    <ion-card-content> <div *ngIf="userDetails.type == 'Member' || userDetails.type == 'Champion' || userDetails.type == 'Patriot' || userDetails.type == 'Ambassador'">
+      Share your referral link via social media, it's easy.</div>
+      <div *ngIf="userDetails.type == 'FundRaiser'">
+        Share your link to have new prospects signup and join your prospect list.
+      </div></ion-card-content>
+    <!-- Sharing Icons -->
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <button ion-button icon-only (click)="regularShare()" color="primary" clear>
+        <ion-icon class="share-icon" name="share"></ion-icon>
+      </button>
+        </ion-col>
+      
+      </ion-row>
+    </ion-grid>
+  </ion-card>
+</ion-content>
